@@ -3,25 +3,51 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
+    "app": "adb install android/app/build/outputs/apk/release/app-release.apk",
+    "c": "adb disconnect && adb tcpip 5555 && adb connect",
+    "cl": "cd android && ./gradlew clean",
+    "cleanr": "yarn cl && yarn android",
+    "cleana": "yarn cl && yarn assemble",
+    "cleanb": "yarn cl && yarn build",
+    "assemble": "cd android && ./gradlew assembleRelease",
+    "build": "cd android && ./gradlew bundleRelease",
     "android": "react-native run-android",
+    "testRelease": "yarn android --variant=release",
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
+    "pretty": "prettier --write \"./**/*.{js,jsx,tx,tsx}\"",
     "lint": "eslint ."
   },
   "dependencies": {
     "react": "16.13.1",
-    "react-native": "0.63.2"
+    "react-native": "0.63.2",
+    "react-native-gesture-handler": "^1.5.0",
+    "react-native-snap-carousel": "^3.8.4",
+    "react-native-splash-screen": "^3.2.0",
+    "react-native-screens": "1.0.0-alpha.23",
+    "react-native-vector-icons": "6.6.0",
+    "react-native-reanimated": "^1.8.0",
+    "react-navigation": "^4.0.10",
+    "react-navigation-stack": "^1.10.3",
+    "react-navigation-transitions": "^1.0.12"
   },
   "devDependencies": {
+    "@types/react": "^16.9.49",
+    "@types/react-native": "^0.63.18",
+    "@types/react-native-snap-carousel": "^3.8.1",
+    "@types/react-native-vector-icons": "^6.4.5",
     "@babel/core": "^7.8.4",
     "@babel/runtime": "^7.8.4",
     "@react-native-community/eslint-config": "^1.1.0",
     "babel-jest": "^25.1.0",
     "eslint": "^6.5.1",
+    "tslint": "^6.0.0",
     "jest": "^25.1.0",
     "metro-react-native-babel-preset": "^0.59.0",
-    "react-test-renderer": "16.13.1"
+    "prettier": "^2.1.1",
+    "react-test-renderer": "16.13.1",
+    "typescript": "^3.8.3"
   },
   "jest": {
     "preset": "react-native"

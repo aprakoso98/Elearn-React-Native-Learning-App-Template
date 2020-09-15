@@ -1,14 +1,8 @@
-import Button from './src/Button'
+import RouteNavigator from '@src/routes';
 import React from 'react';
-import { View, Alert } from 'react-native';
 
 const App = () => {
-  return <View style={{ alignItems: 'center', flex: 1, justifyContent: 'center' }}>
-    <Button
-      style={{ padding: 20 }}
-      onPress={() => Alert.alert('Button Clicked!')}
-    >Button</Button>
-  </View>
+  return <RouteNavigator />
 }
 
 export default App;
