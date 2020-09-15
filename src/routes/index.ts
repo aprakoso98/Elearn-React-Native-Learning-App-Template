@@ -1,5 +1,5 @@
 import { createAppContainer, createSwitchNavigator } from "react-navigation"
-import AppNavigator from './AppNavigator'
+import AppNavigator from './UnauthNavigator'
 
 const Switch = createSwitchNavigator({
 	AppNavigator

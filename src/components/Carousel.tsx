@@ -36,7 +36,7 @@ const Carousel = forwardRef(({ hasPagination, renderItem, data, style }: Props, 
 			dotStyle={styles.dotStyle}
 			dotsLength={data.length}
 			inactiveDotScale={1}
-			// inactiveDotOpacity={1}
+			inactiveDotOpacity={1}
 			inactiveDotStyle={{ paddingHorizontal: Sizes.secondary }}
 			activeDotIndex={activeIndex}
 		/>}
@@ -50,11 +50,15 @@ const styles = StyleSheet.create({
 		flex: 1,
 		position: 'relative'
 	},
-	dotStyle: { paddingHorizontal: Sizes.base, borderRadius: Sizes.base, backgroundColor: Colors.primary },
+	dotStyle: {
+		paddingHorizontal: Sizes.base,
+		borderRadius: Sizes.base,
+		backgroundColor: Colors.primary
+	},
 	pagination: {
 		position: 'absolute',
 		bottom: 0,
 		alignSelf: 'center',
-		// paddingVertical: 0
+		paddingVertical: Sizes.base * 2
 	}
 })
