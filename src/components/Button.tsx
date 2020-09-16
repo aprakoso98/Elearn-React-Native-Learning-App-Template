@@ -3,22 +3,32 @@ import React from 'react';
 import { TouchableOpacity, ViewStyle } from 'react-native'
 import Text from './Text';
 import { Colors } from '../utils/constants';
+import Wrapper from './Wrapper';
 
 interface Props {
 	children: string | React.ReactNode
-	style?: ViewStyle,
+	style?: ViewStyle
+	containerStyle?: ViewStyle
 	color?: colorType
 	bColor?: colorType
 	isTransparent?: boolean
 	onPress?: (any) => any
 }
 
-const Button = ({ isTransparent, color, bColor, onPress, style, children }: Props) => {
+const Button = ({
+	isTransparent,
+	color = 'light',
+	bColor = 'primary',
+	onPress,
+	style,
+	containerStyle,
+	children
+}: Props) => {
 	if (!isTransparent) {
 		bColor = Colors[bColor]
 	}
 	return <TouchableOpacity
-		activeOpacity={1}
+		// activeOpacity={1}
 		onPress={onPress}
 		style={{
 			...!isTransparent &&
@@ -28,19 +38,16 @@ const Button = ({ isTransparent, color, bColor, onPress, style, children }: Prop
 			},
 			borderRadius: Sizes.secondary,
 			marginBottom: Sizes.base,
-			...style
+			...containerStyle
 		}}
 	>
-		{typeof children === 'string' ? <Text style={isTransparent && {
-			borderBottomColor: Colors[color],
-			borderBottomWidth: 1
-		}} align="center" color={color}>{children}</Text> : children}
+		<Wrapper style={style} justifyContent="center">
+			{typeof children === 'string' ? <Text style={isTransparent && {
+				borderBottomColor: Colors[color],
+				borderBottomWidth: 1
+			}} color={color}>{children}</Text> : children}
+		</Wrapper>
 	</TouchableOpacity>
-}
-
-Button.defaultProps = {
-	color: 'light',
-	bColor: 'primary'
 }
 
 export default Button

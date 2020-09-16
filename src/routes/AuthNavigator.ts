@@ -1,7 +1,6 @@
-import ForgotPassword from '@src/screens/ForgotPassword'
-import Intro from "@src/screens/Intro"
-import Login from '@src/screens/Login'
-import Register from '@src/screens/Register'
+import Account from '@src/screens/Account'
+import Home from '@src/screens/Home'
+import { prettyConsole } from '@src/utils/helper'
 import { StackNavProps } from "@src/utils/types"
 import { createAppContainer } from "react-navigation"
 import { createStackNavigator } from "react-navigation-stack"
@@ -11,19 +10,15 @@ import { sceneType } from '.'
 const handleCustomTransition = ({ scenes }) => {
 	const prevScene: sceneType = scenes[scenes.length - 2]
 	const nextScene: sceneType = scenes[scenes.length - 1]
-	if (prevScene && nextScene) {
-		if (prevScene.route.routeName === 'Intro' && nextScene.route.routeName === 'Login') {
-			return fromBottom()
-		}
+	if (prevScene && nextScene && nextScene.route.params.transition) {
+		return nextScene.route.params.transition()
 	}
 	return fadeIn()
 }
 
 const Navs: StackNavProps = {
-	Intro: { screen: Intro },
-	Login: { screen: Login },
-	ForgotPassword: { screen: ForgotPassword },
-	Register: { screen: Register }
+	Home: { screen: Home },
+	Account: { screen: Account },
 }
 
 const Stack = createStackNavigator(Navs, {
@@ -31,5 +26,5 @@ const Stack = createStackNavigator(Navs, {
 	transitionConfig: nav => handleCustomTransition(nav),
 })
 
-const UnAuthNavigator = createAppContainer(Stack)
-export default UnAuthNavigator
+const AuthNavigator = createAppContainer(Stack)
+export default AuthNavigator

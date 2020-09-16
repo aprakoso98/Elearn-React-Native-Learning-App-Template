@@ -12,6 +12,7 @@ const Sizes = {
 	base: 10,
 	secondary: 5,
 	text: 14,
+	get iconHeader() { return this.heading5 },
 	get heading1() { return this.text * 5 },
 	get heading2() { return this.text * 4 },
 	get heading3() { return this.text * 3 },
@@ -35,16 +36,20 @@ const Images = {
 }
 
 const Colors = {
+	gold: '#FFD700',
 	danger: '#af5d4c',
 	grey: '#acacac',
 	text: '#707070',
+	dark: '#707070',
 	greySoft: '#f2f2f2',
 	light: '#ffffff',
 	primary: '#ce7968',
 	success: '#80d583',
+	blackTransparent: 'rgba(0,0,0,.5)',
+	transparent: 'transparent'
 }
 
-export type colorType = 'danger' | 'grey' | 'text' | 'greySoft' | 'light' | 'primary' | 'success'
+export type colorType = 'gold' | 'blackTransparent' | 'dark' | 'transparent' | 'danger' | 'grey' | 'text' | 'greySoft' | 'light' | 'primary' | 'success'
 export type flexType = 'space-between' | 'space-evenly' | 'space-around' | 'flex-start' | 'flex-end' | 'center'
 
 export { Colors, Sizes, Icons, Images }

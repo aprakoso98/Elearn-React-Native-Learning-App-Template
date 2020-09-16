@@ -25,8 +25,7 @@ const Text = ({ size, color, onPress, align: textAlign, style, children }: Props
 Text.defaultProps = {
 	size: Sizes.text,
 	align: 'left',
-	color: 'text',
-
+	color: 'text'
 }
 
 export default Text
