@@ -1,53 +1,87 @@
-import { colorType, Sizes } from '@src/utils/constants';
+import { alignType, colorType, Sizes } from '@src/utils/constants';
 import React from 'react';
 import { TouchableOpacity, ViewStyle } from 'react-native'
 import Text from './Text';
 import { Colors } from '../utils/constants';
-import Wrapper from './Wrapper';
+import Wrapper, { WrapperProps } from './Wrapper';
+import Icon from './Icon';
 
-interface Props {
+interface Props extends Omit<WrapperProps, 'children'> {
 	children: string | React.ReactNode
 	style?: ViewStyle
 	containerStyle?: ViewStyle
 	color?: colorType
 	bColor?: colorType
 	isTransparent?: boolean
+	withMargin?: boolean
+	isLink?: boolean
 	onPress?: (any) => any
 }
 
 const Button = ({
 	isTransparent,
-	color = 'light',
-	bColor = 'primary',
+	withMargin,
+	isLink,
+	color,
+	bColor,
 	onPress,
 	style,
 	containerStyle,
-	children
+	children,
+	...rest
 }: Props) => {
-	if (!isTransparent) {
-		bColor = Colors[bColor]
+	if (!isTransparent && bColor) {
+		bColor = Colors[bColor] ? Colors[bColor] : bColor
 	}
-	return <TouchableOpacity
-		// activeOpacity={1}
-		onPress={onPress}
-		style={{
-			...!isTransparent &&
-			{
-				backgroundColor: bColor,
+	return <TouchableOpacity style={{
+		...withMargin && { marginVertical: Sizes.bodyTop, marginHorizontal: Sizes.bodyPadding },
+		...containerStyle
+	}} onPress={onPress}>
+		<Wrapper justifyContent={typeof children === 'string' ? 'center' : undefined} style={{
+			...!isLink && !isTransparent && {
 				padding: Sizes.base,
+				backgroundColor: bColor,
+				borderRadius: Sizes.secondary
 			},
-			borderRadius: Sizes.secondary,
-			marginBottom: Sizes.base,
-			...containerStyle
-		}}
-	>
-		<Wrapper style={style} justifyContent="center">
-			{typeof children === 'string' ? <Text style={isTransparent && {
-				borderBottomColor: Colors[color],
-				borderBottomWidth: 1
+			...style
+		}} {...rest}>
+			{typeof children === 'string' ? <Text style={{
+				...isLink && {
+					borderBottomColor: color && Colors[color],
+					borderBottomWidth: 1
+				}
 			}} color={color}>{children}</Text> : children}
 		</Wrapper>
 	</TouchableOpacity>
 }
+
+Button.defaultProps = {
+	color: 'light',
+	bColor: 'primary'
+}
+
+export const ButtonChevron = ({ style, label, children, ...rest }: {
+	label?: string,
+	children?: React.ReactNode | string
+} & Omit<Props, 'children'>) => {
+	return <Button {...rest}
+		containerStyle={{
+			borderBottomColor: Colors.text,
+			borderBottomWidth: 1,
+			paddingVertical: Sizes.base,
+			...style
+		}}
+		isTransparent
+		color="text">
+		{
+			!children || typeof children === 'string' ? <>
+				<Text>{label}</Text>
+				{children && <Text style={{ flex: .9 }} align="right" color="grey">{children}</Text>}
+			</> : children
+		}
+		<Icon name="chevron-right" />
+	</Button>
+}
+
 
 export default Button

@@ -1,11 +1,11 @@
-import { createAppContainer, createSwitchNavigator, TransitionConfig } from "react-navigation"
+import { createAppContainer, createSwitchNavigator } from "react-navigation"
 import UnAuthNavigator from './UnauthNavigator'
 import AuthNavigator from './AuthNavigator';
 
 export interface sceneType {
 	route: {
 		params: {
-			transition?: TransitionConfig
+			transition?: () => void,
 			[key: string]: any
 		},
 		routeName: string,
@@ -14,8 +14,8 @@ export interface sceneType {
 }
 
 const Switch = createSwitchNavigator({
-	AuthNavigator,
 	UnAuthNavigator,
+	AuthNavigator,
 })
 const RouteNavigator = createAppContainer(Switch)
 

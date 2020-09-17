@@ -1,6 +1,6 @@
 import { Colors, colorType, Sizes } from '@src/utils/constants';
 import React from 'react';
-import { Modal as ModalRN, View, ViewProps, ViewStyle } from 'react-native';
+import { Modal as ModalRN, TouchableOpacity, View, ViewProps, ViewStyle } from 'react-native';
 import Button from './Button';
 
 export interface Props extends ViewProps {
@@ -9,6 +9,7 @@ export interface Props extends ViewProps {
 	containerColor?: string
 	children: React.ReactNode
 	visible: boolean
+	onBackdropClick?: () => void
 }
 
 const Modal = ({
@@ -16,27 +17,24 @@ const Modal = ({
 	fullScreen,
 	style,
 	visible,
+	onBackdropClick,
 	...rest
 }: Props) => {
 	return <ModalRN animationType="fade" transparent visible={visible}>
-		<Button
-			bColor="blackTransparent"
-			containerStyle={{
-				...!fullScreen && { padding: Sizes.base * 3 },
-				flex: 1,
-				justifyContent: fullScreen ? 'flex-start' : 'center',
-				marginBottom: 0,
-				borderRadius: 0
-			}}>
-			<View {...rest} style={[
+		<TouchableOpacity onPress={onBackdropClick} style={{
+			...!fullScreen && { padding: Sizes.bodyPadding },
+			justifyContent: fullScreen ? 'flex-start' : 'center',
+			backgroundColor: Colors.blackTransparent,
+			flex: 1,
+		}}>
+			<TouchableOpacity activeOpacity={1} {...rest} style={[
 				fullScreen && { flex: 1 },
 				{
 					padding: Sizes.base,
 					borderRadius: Sizes.secondary,
 					backgroundColor: containerColor
-				},
-				style]} />
-		</Button>
+				}, style]} />
+		</TouchableOpacity>
 	</ModalRN>
 }
 

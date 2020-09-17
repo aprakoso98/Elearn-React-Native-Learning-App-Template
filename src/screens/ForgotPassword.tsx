@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View } from 'react-native';
-import Container from '@src/components/Container';
+import Container, { Body } from '@src/components/Container';
 import Text from '@src/components/Text';
 import { ScreenProps } from '@src/utils/types';
 import { Colors, Sizes } from '@src/utils/constants';
@@ -13,7 +13,7 @@ import Alert from '@src/components/Alert';
 
 const ForgotPassword = ({ navigation }: ScreenProps) => {
 	const [state, setState] = useStateObject({ visible: false })
-	return <Container style={{ justifyContent: 'space-between' }}>
+	return <Container>
 		<Alert
 			visible={state.visible}
 			iconName="check-circle"
@@ -27,19 +27,21 @@ const ForgotPassword = ({ navigation }: ScreenProps) => {
 				}
 			}}
 		/>
-		<LogoText />
-		<View>
-			<Text size={Sizes.heading4} align="center">Forgot password</Text>
-			<Text style={{ marginBottom: Sizes.heading3 }} align="center">Reset your password</Text>
-			<Input
-				label="EMAIL"
-				value={state.email}
-				onChangeText={email => setState({ email })}
-			/>
-			<Button onPress={() => setState({ visible: true })}>SENT RESET LINK</Button>
-			<Button onPress={() => navigation.goBack()} color="text" style={{ alignSelf: 'center' }} isTransparent>Back to login</Button>
-		</View>
-		<View />
+		<Body style={{ justifyContent: 'space-between' }}>
+			<LogoText />
+			<View>
+				<Text size={Sizes.heading4} align="center">Forgot password</Text>
+				<Text align="center">Reset your password</Text>
+				<Input
+					label="EMAIL"
+					value={state.email}
+					onChangeText={email => setState({ email })}
+				/>
+				<Button style={{ marginVertical: Sizes.base }} onPress={() => setState({ visible: true })}>SENT RESET LINK</Button>
+				<Button onPress={() => navigation.goBack()} color="text" style={{ alignSelf: 'center' }} isLink>Back to login</Button>
+			</View>
+			<View />
+		</Body>
 	</Container>
 }
 

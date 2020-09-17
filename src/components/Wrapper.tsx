@@ -1,16 +1,16 @@
-import { flexType } from '@src/utils/constants';
+import { flexAlignType, flexJustifyType } from '@src/utils/constants';
 import React from 'react';
 import { View, ViewProps, ViewStyle } from 'react-native';
 
-interface Props extends ViewProps {
-	justifyContent: flexType
-	alignItems: flexType
+export interface WrapperProps extends ViewProps {
+	justifyContent?: flexJustifyType
+	alignItems?: flexAlignType
 	style?: ViewStyle
 	children: React.ReactNode
 	direction?: 'row' | 'row-reverse' | 'column' | 'column-reverse'
 }
 
-const Wrapper = ({ alignItems, justifyContent, direction, children, style }: Props) => {
+const Wrapper = ({ alignItems, justifyContent, direction, children, style }: WrapperProps) => {
 	return <View style={{ justifyContent, alignItems, flexDirection: direction, ...style }}>
 		{children}
 	</View>

@@ -12,17 +12,22 @@ const Sizes = {
 	base: 10,
 	secondary: 5,
 	text: 14,
+	get bodyPadding() { return this.base * 4 },
+	get bodyTop() { return this.base * 2 },
 	get iconHeader() { return this.heading5 },
 	get heading1() { return this.text * 5 },
 	get heading2() { return this.text * 4 },
 	get heading3() { return this.text * 3 },
 	get heading4() { return this.text * 2 },
 	get heading5() { return this.text * 1.5 },
+	get heading6() { return this.text * 1.25 },
 }
+
+export type sizeType = 'base' | 'bodyTop' | 'secondary' | 'text' | 'bodyPadding' | 'iconHeader' | 'heading1' | 'heading2' | 'heading3' | 'heading4' | 'heading5' | 'heading6' | number & { size?: number }
 
 const Icons = {
 	atom: require("@src/assets/icons/atom.png"),
-	Microscope: require("@src/assets/icons/microscope.png"),
+	microscope: require("@src/assets/icons/microscope.png"),
 	rulerPen: require("@src/assets/icons/ruler-pen.png"),
 	visa: require("@src/assets/icons/visa.png"),
 }
@@ -44,13 +49,17 @@ const Colors = {
 	greySoft: '#f2f2f2',
 	light: '#ffffff',
 	primary: '#ce7968',
+	primaryTransparent: 'rgba(206,121,104,.5)',
 	success: '#80d583',
 	blackTransparent: 'rgba(0,0,0,.5)',
 	transparent: 'transparent'
 }
 
-export type colorType = 'gold' | 'blackTransparent' | 'dark' | 'transparent' | 'danger' | 'grey' | 'text' | 'greySoft' | 'light' | 'primary' | 'success'
-export type flexType = 'space-between' | 'space-evenly' | 'space-around' | 'flex-start' | 'flex-end' | 'center'
+export type colorType = 'gold' | 'blackTransparent' | 'dark' | 'transparent' | 'danger' | 'grey' | 'text' | 'greySoft' | 'light' | 'primary' | 'success' | string & { color?: string }
+export type flexJustifyType = 'flex-start' | 'flex-end' | 'center' | 'space-between' | 'space-around' | 'space-evenly'
+export type flexAlignType = 'flex-start' | 'flex-end' | 'center' | 'stretch' | 'baseline'
+export type flexContentType = 'flex-start' | 'flex-end' | 'center' | 'stretch' | 'space-between' | 'space-around'
+export type alignType = 'left' | 'center' | 'right'
 
 export { Colors, Sizes, Icons, Images }
 export default Constants

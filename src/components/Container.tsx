@@ -10,17 +10,19 @@ interface Props extends ViewProps, ScrollViewProps {
 const Container = ({ style, ...rest }: Props) => {
 	return <View style={{
 		backgroundColor: Colors.light,
-		padding: Sizes.base * 2,
+		// padding: Sizes.base * 2,
 		flex: 1,
 		...style
 	}} {...rest} />
 }
 
-export const Body = ({ scrollable, style, ...rest }: Props & { scrollable?: boolean }) => {
+export const Body = ({ noMargin, noPadding, scrollable, style, ...rest }: Props & { noMargin?: boolean, noPadding?: boolean, scrollable?: boolean }) => {
 	const props = {
 		...rest,
 		style: {
-			paddingHorizontal: Sizes.base * 2,
+			flex: 1,
+			paddingHorizontal: noPadding ? 0 : Sizes.base * 4,
+			marginBottom: noMargin ? 0 : Sizes.bodyTop,
 			...style
 		}
 	}

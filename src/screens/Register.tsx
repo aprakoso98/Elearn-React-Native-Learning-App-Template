@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View } from 'react-native';
-import Container from '@src/components/Container';
+import Container, { Body } from '@src/components/Container';
 import Text from '@src/components/Text';
 import { ScreenProps } from '@src/utils/types';
 import { Sizes } from '@src/utils/constants';
@@ -13,7 +13,7 @@ import { LogoText } from './Login';
 const Register = ({ navigation }: ScreenProps) => {
 	const [state, setState] = useStateObject()
 	const [visible, setVisible] = useState(false)
-	return <Container style={{ justifyContent: 'space-between' }}>
+	return <Container>
 		<Alert
 			visible={visible}
 			iconName="check-circle"
@@ -27,18 +27,20 @@ const Register = ({ navigation }: ScreenProps) => {
 				}
 			}}
 		/>
-		<LogoText />
-		<View>
-			<Text size={Sizes.heading4} align="center">Register</Text>
-			<Text style={{ marginBottom: Sizes.heading3 }} align="center">Create your account</Text>
-			<Input label="YOUR NAME" onChangeText={yourName => setState({ yourName })} value={state.yourName} />
-			<Input label="EMAIL" onChangeText={email => setState({ email })} value={state.email} />
-			<Input label="PASSWORD" onChangeText={password => setState({ password })} value={state.password} />
-			<Input label="CONFIRM PASSWORD" onChangeText={confirmPassword => setState({ confirmPassword })} value={state.confirmPassword} />
-			<Button onPress={() => setVisible(true)}>CREATE ACCOUNT</Button>
-			<Text style={{ marginTop: Sizes.heading5 }} align="center">Already have an account? <Text onPress={() => navigation.goBack()} color="primary">Login here</Text></Text>
-		</View>
-		<View />
+		<Body style={{ justifyContent: 'space-between' }}>
+			<LogoText />
+			<View>
+				<Text size={Sizes.heading4} align="center">Register</Text>
+				<Text align="center">Create your account</Text>
+				<Input label="YOUR NAME" onChangeText={yourName => setState({ yourName })} value={state.yourName} />
+				<Input label="EMAIL" onChangeText={email => setState({ email })} value={state.email} />
+				<Input label="PASSWORD" onChangeText={password => setState({ password })} value={state.password} />
+				<Input label="CONFIRM PASSWORD" onChangeText={confirmPassword => setState({ confirmPassword })} value={state.confirmPassword} />
+				<Button style={{ marginVertical: Sizes.base }} onPress={() => setVisible(true)}>CREATE ACCOUNT</Button>
+				<Text style={{ marginTop: Sizes.heading5 }} align="center">Already have an account? <Text onPress={() => navigation.goBack()} color="primary">Login here</Text></Text>
+			</View>
+			<View />
+		</Body>
 	</Container>
 }
 

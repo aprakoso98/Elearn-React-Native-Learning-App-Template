@@ -28,13 +28,13 @@ const Alert = ({
 	cancelButton,
 	...rest
 }: Props) => {
-	return <Modal {...rest} style={{ flex: 1, paddingHorizontal: Sizes.base * 3, paddingVertical: Sizes.base * 3 }}>
+	return <Modal {...rest} style={{ paddingHorizontal: Sizes.base * 3, paddingVertical: Sizes.base * 3 }}>
 		{iconName && <Icon style={{ alignSelf: 'center' }} color={Colors.primary} size={Sizes.heading1} name={iconName} />}
-		{title && <Text align="center" size={Sizes.heading4}>{title}</Text>}
+		{title && <Text style={{ marginTop: Sizes.base }} align="center" size={Sizes.heading4}>{title}</Text>}
 		<Text style={{ paddingVertical: Sizes.base * 2 }} align="center">{subTitle}</Text>
 		<View style={{ marginTop: Sizes.base * 2 }}>
 			<Button onPress={okButton.onPress}>{okButton.text}</Button>
-			{cancelButton && <Button isTransparent onPress={cancelButton.onPress} color="text">{cancelButton.text}</Button>}
+			{cancelButton && <Button containerStyle={{ marginTop: Sizes.base }} isLink onPress={cancelButton.onPress} color="text">{cancelButton.text}</Button>}
 		</View>
 	</Modal>
 }

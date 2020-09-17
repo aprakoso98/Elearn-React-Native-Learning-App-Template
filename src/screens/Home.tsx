@@ -9,13 +9,13 @@ import { Colors, Icons, Sizes } from '@src/utils/constants';
 import Input from '@src/components/Input';
 import Icon from '@src/components/Icon';
 import Wrapper from '@src/components/Wrapper';
-import Card from '@src/components/Card';
-import { fromLeft } from 'react-navigation-transitions';
+import Card, { CardIcon } from '@src/components/Card';
+import { fromLeft, fromRight } from 'react-navigation-transitions';
 
 const Home = ({ navigation }: ScreenProps) => {
 	return <Container>
 		<Header onPressLeft={() => navigation.navigate('Account', { transition: fromLeft })} iconLeft="bars">
-			<Button isTransparent>
+			<Button onPress={() => navigation.navigate('Notification', { transition: fromRight })} isTransparent>
 				<IconHeader name="bell" />
 				<View style={{
 					position: 'absolute',
@@ -30,50 +30,33 @@ const Home = ({ navigation }: ScreenProps) => {
 		<Body scrollable>
 			<Text size={Sizes.heading3}>What do you like to start learning?</Text>
 			<Input
+				noLabel
 				label="Search your courses"
-				renderRightAccessory={() => <Icon name="search" />}
+				renderRightAccessory={() => <Icon color={Colors.primary} name="search" />}
 			/>
-			<Wrapper style={{ alignItems: 'center' }}>
+			<Wrapper style={{ marginVertical: Sizes.base, alignItems: 'center' }}>
 				<Text size={Sizes.heading5}>My courses</Text>
-				<Button containerStyle={{ marginBottom: 0 }} isTransparent color="primary">See all</Button>
+				<Button onPress={() => navigation.navigate('Course', { transition: fromRight })} isTransparent color="primary">See all</Button>
 			</Wrapper>
 			<ScrollView showsHorizontalScrollIndicator={false} horizontal>
-				<Card /><Card /><Card /><Card /><Card /><Card />
+				<Card style={{ width: 200 }} />
+				<Card style={{ width: 200, marginHorizontal: Sizes.base }} />
+				<Card style={{ width: 200 }} />
 			</ScrollView>
-			<Wrapper style={{ alignItems: 'center' }}>
+			<Wrapper style={{ marginVertical: Sizes.base, alignItems: 'center' }}>
 				<Text size={Sizes.heading5}>Featured content</Text>
-				<Button containerStyle={{ marginBottom: 0 }} isTransparent color="primary">See all</Button>
+				<Button isTransparent color="primary">See all</Button>
 			</Wrapper>
-			<Wrapper>
-				<View style={{ backgroundColor: Colors.primary, padding: Sizes.base, borderRadius: Sizes.secondary }}>
-					<Image source={Icons.rulerPen} />
-				</View>
-				<View style={{ justifyContent: 'space-between', flex: 1, marginHorizontal: Sizes.base }}>
-					<Text>Mathematic Aljabar - Grade 6</Text>
-					<Text color="grey">by George Smith</Text>
-				</View>
-				<View>
-					<Icon color={Colors.gold} solid name="star" />
-					<Text>4.7</Text>
-				</View>
-			</Wrapper>
-			<Wrapper style={{ alignItems: 'center' }}>
+			<CardIcon />
+			<CardIcon />
+			<CardIcon />
+			<Wrapper style={{ marginVertical: Sizes.base, alignItems: 'center' }}>
 				<Text size={Sizes.heading5}>New courses</Text>
-				<Button containerStyle={{ marginBottom: 0 }} isTransparent color="primary">See all</Button>
+				<Button isTransparent color="primary">See all</Button>
 			</Wrapper>
-			<Wrapper>
-				<View style={{ backgroundColor: Colors.primary, padding: Sizes.base, borderRadius: Sizes.secondary }}>
-					<Image source={Icons.rulerPen} />
-				</View>
-				<View style={{ justifyContent: 'space-between', flex: 1, marginHorizontal: Sizes.base }}>
-					<Text>Mathematic Aljabar - Grade 6</Text>
-					<Text color="grey">by George Smith</Text>
-				</View>
-				<View>
-					<Icon color={Colors.gold} solid name="star" />
-					<Text>4.7</Text>
-				</View>
-			</Wrapper>
+			<CardIcon />
+			<CardIcon />
+			<CardIcon />
 		</Body>
 	</Container>
 }

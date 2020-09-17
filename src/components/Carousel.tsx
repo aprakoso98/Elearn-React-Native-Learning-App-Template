@@ -1,7 +1,9 @@
-import React, { forwardRef, useState } from 'react';
+import React, { forwardRef, useEffect, useState } from 'react';
 import { StyleSheet, Text, View, ViewStyle } from "react-native"
 import SnapCarousel, { CarouselProps, Pagination, PaginationProps, AdditionalParallaxProps } from "react-native-snap-carousel"
 import Constants, { Colors, Sizes } from '@src/utils/constants';
+import { useStateObject } from '@src/hooks/useState';
+import { prettyConsole } from '@src/utils/helper';
 
 type ItemType = {
 	item: any,
@@ -13,23 +15,31 @@ interface Props {
 		item: ItemType,
 		parallaxProps?: AdditionalParallaxProps,
 	) => React.ReactNode
-	data: ReadonlyArray<any>
+	onSnapToItem?: (index: number) => void
+	data: any[]
 	hasPagination?: boolean
 	itemWidth?: number
 	style?: ViewStyle
 }
 
-const Carousel = forwardRef(({ hasPagination, renderItem, data, style }: Props, forwardedRef) => {
-	const [activeIndex, setActiveIndex] = useState(0)
-	return <View style={styles.container}>
+/* @ts-ignore  */
+const Carousel = forwardRef(({ onSnapToItem, hasPagination, renderItem, data, style }: Props, forwardedRef?: (event: SnapCarousel<{}>) => void) => {
+	const [state, setState] = useStateObject({
+		layout: { width: 1 }
+	})
+	return <View onLayout={({ nativeEvent: { layout } }) => setState({ layout })} style={{ flex: 1, ...style }}>
 		<SnapCarousel
-			ref={forwardRef}
-			style={[{ flex: 1 }, style]}
 			data={data}
+			ref={forwardedRef}
+			/* @ts-ignore  */
 			renderItem={renderItem}
-			onSnapToItem={(index: number) => setActiveIndex(index)}
-			sliderWidth={Constants.MAX_WIDTH}
-			itemWidth={Constants.MAX_WIDTH}
+			onSnapToItem={(activeIndex: number) => {
+				if (onSnapToItem) onSnapToItem(activeIndex)
+				setState({ activeIndex })
+			}}
+			sliderWidth={state.layout.width}
+			useScrollView
+			itemWidth={state.layout.width}
 		/>
 		{hasPagination && <Pagination
 			containerStyle={styles.pagination}
@@ -38,7 +48,7 @@ const Carousel = forwardRef(({ hasPagination, renderItem, data, style }: Props, 
 			inactiveDotScale={1}
 			inactiveDotOpacity={1}
 			inactiveDotStyle={{ paddingHorizontal: Sizes.secondary }}
-			activeDotIndex={activeIndex}
+			activeDotIndex={state.activeIndex}
 		/>}
 	</View>
 })
