@@ -29,6 +29,9 @@ const Carousel = forwardRef(({ onSnapToItem, hasPagination, renderItem, data, st
 	})
 	return <View onLayout={({ nativeEvent: { layout } }) => setState({ layout })} style={{ flex: 1, ...style }}>
 		<SnapCarousel
+			vertical
+			
+			enableSnap={false}
 			data={data}
 			ref={forwardedRef}
 			/* @ts-ignore  */
@@ -37,9 +40,9 @@ const Carousel = forwardRef(({ onSnapToItem, hasPagination, renderItem, data, st
 				if (onSnapToItem) onSnapToItem(activeIndex)
 				setState({ activeIndex })
 			}}
-			sliderWidth={state.layout.width}
+			sliderHeight={state.layout.height}
 			useScrollView
-			itemWidth={state.layout.width}
+			itemHeight={state.layout.height}
 		/>
 		{hasPagination && <Pagination
 			containerStyle={styles.pagination}

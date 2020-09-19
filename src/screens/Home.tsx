@@ -39,24 +39,24 @@ const Home = ({ navigation }: ScreenProps) => {
 				<Button onPress={() => navigation.navigate('Course', { transition: fromRight })} isTransparent color="primary">See all</Button>
 			</Wrapper>
 			<ScrollView showsHorizontalScrollIndicator={false} horizontal>
-				<Card style={{ width: 200 }} />
-				<Card style={{ width: 200, marginHorizontal: Sizes.base }} />
-				<Card style={{ width: 200 }} />
+				<Card onPress={() => navigation.navigate('Course', { transition: fromRight })} style={{ width: 200 }} />
+				<Card onPress={() => navigation.navigate('Course', { transition: fromRight })} style={{ width: 200, marginHorizontal: Sizes.base }} />
+				<Card onPress={() => navigation.navigate('Course', { transition: fromRight })} style={{ width: 200 }} />
 			</ScrollView>
 			<Wrapper style={{ marginVertical: Sizes.base, alignItems: 'center' }}>
 				<Text size={Sizes.heading5}>Featured content</Text>
 				<Button isTransparent color="primary">See all</Button>
 			</Wrapper>
-			<CardIcon />
-			<CardIcon />
-			<CardIcon />
+			<CardIcon onPress={() => navigation.navigate('Course', { transition: fromRight })} />
+			<CardIcon onPress={() => navigation.navigate('Course', { transition: fromRight })} />
+			<CardIcon onPress={() => navigation.navigate('Course', { transition: fromRight })} />
 			<Wrapper style={{ marginVertical: Sizes.base, alignItems: 'center' }}>
 				<Text size={Sizes.heading5}>New courses</Text>
 				<Button isTransparent color="primary">See all</Button>
 			</Wrapper>
-			<CardIcon />
-			<CardIcon />
-			<CardIcon />
+			<CardIcon onPress={() => navigation.navigate('Course', { transition: fromRight })} />
+			<CardIcon onPress={() => navigation.navigate('Course', { transition: fromRight })} />
+			<CardIcon onPress={() => navigation.navigate('Course', { transition: fromRight })} />
 		</Body>
 	</Container>
 }

@@ -40,20 +40,22 @@ const Card = ({ onPress, style }: CardProps) => {
 	</TouchableOpacity>
 }
 
-export const CardIcon = () => {
-	return <Wrapper style={{ marginVertical: Sizes.secondary}}>
-		<View style={{ backgroundColor: Colors.primary, padding: Sizes.base, borderRadius: Sizes.secondary }}>
-			<Image source={Icons.rulerPen} />
-		</View>
-		<View style={{ justifyContent: 'space-between', flex: 1, marginHorizontal: Sizes.base }}>
-			<Text>Mathematic - Algebra Grade 6</Text>
-			<Text color="grey">by George Smith</Text>
-		</View>
-		<View>
-			<Icon color={Colors.gold} solid name="star" />
-			<Text>4.7</Text>
-		</View>
-	</Wrapper>
+export const CardIcon = ({ onPress, style }: CardProps) => {
+	return <TouchableOpacity onPress={onPress} style={{ marginVertical: Sizes.secondary, ...style }}>
+		<Wrapper>
+			<View style={{ backgroundColor: Colors.primary, padding: Sizes.base, borderRadius: Sizes.secondary }}>
+				<Image source={Icons.rulerPen} />
+			</View>
+			<View style={{ justifyContent: 'space-between', flex: 1, marginHorizontal: Sizes.base }}>
+				<Text>Mathematic - Algebra Grade 6</Text>
+				<Text color="grey">by George Smith</Text>
+			</View>
+			<View>
+				<Icon color={Colors.gold} solid name="star" />
+				<Text>4.7</Text>
+			</View>
+		</Wrapper>
+	</TouchableOpacity>
 }
 
 export default Card
