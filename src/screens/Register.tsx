@@ -27,10 +27,10 @@ const Register = ({ navigation }: ScreenProps) => {
 				}
 			}}
 		/>
-		<Body style={{ justifyContent: 'space-between' }}>
+		<Body scrollable style={{ marginVertical: Sizes.bodyPadding }}>
 			<LogoText />
 			<View>
-				<Text size={Sizes.heading4} align="center">Register</Text>
+				<Text size="heading1" align="center">Register</Text>
 				<Text align="center">Create your account</Text>
 				<Input label="YOUR NAME" onChangeText={yourName => setState({ yourName })} value={state.yourName} />
 				<Input label="EMAIL" onChangeText={email => setState({ email })} value={state.email} />

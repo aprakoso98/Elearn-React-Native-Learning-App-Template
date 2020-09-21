@@ -27,10 +27,10 @@ const ForgotPassword = ({ navigation }: ScreenProps) => {
 				}
 			}}
 		/>
-		<Body style={{ justifyContent: 'space-between' }}>
+		<Body scrollable style={{ marginVertical: Sizes.bodyPadding }}>
 			<LogoText />
 			<View>
-				<Text size={Sizes.heading4} align="center">Forgot password</Text>
+				<Text size="heading1" align="center">Forgot password</Text>
 				<Text align="center">Reset your password</Text>
 				<Input
 					label="EMAIL"

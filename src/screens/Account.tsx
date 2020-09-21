@@ -7,7 +7,7 @@ import { View } from 'react-native';
 import Text from '@src/components/Text';
 import Button, { ButtonChevron } from '@src/components/Button';
 import { Colors, Sizes } from '@src/utils/constants';
-import { fromRight } from 'react-navigation-transitions';
+import { fadeOut, fromRight } from 'react-navigation-transitions';
 import Icon from '@src/components/Icon';
 
 const Account = ({ navigation }: ScreenProps) => {
@@ -30,8 +30,8 @@ const Account = ({ navigation }: ScreenProps) => {
 			<ButtonChevron label="Share Feedback" />
 			<ButtonChevron label="Visit Our Website" />
 			<ButtonChevron label="Rate The App" />
-			<Button style={{ marginVertical: Sizes.bodyTop }} bColor="greySoft" color="grey">LOGOUT</Button>
-			<Text color="grey" align="center">Copyright<Icon iconSize="base" color="grey" name="copyright" /> all rights reserved by gorilab.id</Text>
+			<Button onPress={() => navigation.navigate('Login', { transition: fadeOut })} withMarginVertical bColor="greySoft" color="grey">LOGOUT</Button>
+			<Text color="grey" align="center">Copyright<Icon iconSize="base" color="grey" name="copyright" /> all rights reserved by gorillab.id</Text>
 		</Body>
 	</Container>
 }

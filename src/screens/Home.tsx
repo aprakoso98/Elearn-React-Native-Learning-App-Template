@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Container, { Body } from '@src/components/Container';
 import Header, { IconHeader } from '@src/components/Header';
 import { ScreenProps } from '@src/utils/types';
@@ -13,6 +13,7 @@ import Card, { CardIcon } from '@src/components/Card';
 import { fromLeft, fromRight } from 'react-navigation-transitions';
 
 const Home = ({ navigation }: ScreenProps) => {
+	const [search, setSearch] = useState('')
 	return <Container>
 		<Header onPressLeft={() => navigation.navigate('Account', { transition: fromLeft })} iconLeft="bars">
 			<Button onPress={() => navigation.navigate('Notification', { transition: fromRight })} isTransparent>
@@ -27,36 +28,42 @@ const Home = ({ navigation }: ScreenProps) => {
 				}} />
 			</Button>
 		</Header>
-		<Body scrollable>
-			<Text size={Sizes.heading3}>What do you like to start learning?</Text>
-			<Input
-				noLabel
-				label="Search your courses"
-				renderRightAccessory={() => <Icon color={Colors.primary} name="search" />}
-			/>
-			<Wrapper style={{ marginVertical: Sizes.base, alignItems: 'center' }}>
-				<Text size={Sizes.heading5}>My courses</Text>
-				<Button onPress={() => navigation.navigate('Course', { transition: fromRight })} isTransparent color="primary">See all</Button>
-			</Wrapper>
-			<ScrollView showsHorizontalScrollIndicator={false} horizontal>
-				<Card onPress={() => navigation.navigate('Course', { transition: fromRight })} style={{ width: 200 }} />
-				<Card onPress={() => navigation.navigate('Course', { transition: fromRight })} style={{ width: 200, marginHorizontal: Sizes.base }} />
-				<Card onPress={() => navigation.navigate('Course', { transition: fromRight })} style={{ width: 200 }} />
+		<Body noPadding scrollable>
+			<View style={{ marginHorizontal: Sizes.bodyPadding }}>
+				<Text size={Sizes.heading3}>What do you like to start learning?</Text>
+				<Input
+					noLabel
+					value={search}
+					onChangeText={search => setSearch(search)}
+					label="Search your courses"
+					renderRightAccessory={() => <Icon color={Colors.primary} name="search" />}
+				/>
+				<Wrapper style={{ marginVertical: Sizes.base, alignItems: 'center' }}>
+					<Text size={Sizes.heading5}>My courses</Text>
+					<Button onPress={() => navigation.navigate('MyCourses', { paid: true, transition: fromRight })} isTransparent color="primary">See all</Button>
+				</Wrapper>
+			</View>
+			<ScrollView contentContainerStyle={{ paddingHorizontal: Sizes.bodyPadding }} showsHorizontalScrollIndicator={false} horizontal>
+				<Card onPress={() => navigation.navigate('Course', { paid: true, transition: fromRight })} style={{ width: 250 }} />
+				<Card color="text" bColor="light" borderColor="grey" barColor="greySoft" onPress={() => navigation.navigate('Course', { paid: true, transition: fromRight })} style={{ width: 250, marginHorizontal: Sizes.base }} />
+				<Card color="text" bColor="light" borderColor="grey" barColor="greySoft" onPress={() => navigation.navigate('Course', { paid: true, transition: fromRight })} style={{ width: 250 }} />
 			</ScrollView>
-			<Wrapper style={{ marginVertical: Sizes.base, alignItems: 'center' }}>
-				<Text size={Sizes.heading5}>Featured content</Text>
-				<Button isTransparent color="primary">See all</Button>
-			</Wrapper>
-			<CardIcon onPress={() => navigation.navigate('Course', { transition: fromRight })} />
-			<CardIcon onPress={() => navigation.navigate('Course', { transition: fromRight })} />
-			<CardIcon onPress={() => navigation.navigate('Course', { transition: fromRight })} />
-			<Wrapper style={{ marginVertical: Sizes.base, alignItems: 'center' }}>
-				<Text size={Sizes.heading5}>New courses</Text>
-				<Button isTransparent color="primary">See all</Button>
-			</Wrapper>
-			<CardIcon onPress={() => navigation.navigate('Course', { transition: fromRight })} />
-			<CardIcon onPress={() => navigation.navigate('Course', { transition: fromRight })} />
-			<CardIcon onPress={() => navigation.navigate('Course', { transition: fromRight })} />
+			<View style={{ marginHorizontal: Sizes.bodyPadding }}>
+				<Wrapper style={{ marginVertical: Sizes.base, alignItems: 'center' }}>
+					<Text size={Sizes.heading5}>Featured content</Text>
+					<Button onPress={() => navigation.navigate('MyCourses', { title: 'Featured content', transition: fromRight })} isTransparent color="primary">See all</Button>
+				</Wrapper>
+				<CardIcon onPress={() => navigation.navigate('Course', { transition: fromRight })} />
+				<CardIcon onPress={() => navigation.navigate('Course', { transition: fromRight })} />
+				<CardIcon onPress={() => navigation.navigate('Course', { transition: fromRight })} />
+				<Wrapper style={{ marginVertical: Sizes.base, alignItems: 'center' }}>
+					<Text size={Sizes.heading5}>New courses</Text>
+					<Button onPress={() => navigation.navigate('MyCourses', { title: 'New courses', transition: fromRight })} isTransparent color="primary">See all</Button>
+				</Wrapper>
+				<CardIcon onPress={() => navigation.navigate('Course', { transition: fromRight })} />
+				<CardIcon onPress={() => navigation.navigate('Course', { transition: fromRight })} />
+				<CardIcon onPress={() => navigation.navigate('Course', { transition: fromRight })} />
+			</View>
 		</Body>
 	</Container>
 }

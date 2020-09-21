@@ -1,4 +1,5 @@
 import { Colors, Icons, Sizes } from '@src/utils/constants';
+import { colorMap, colorType } from '@src/utils/constants/type';
 import React from 'react';
 import { Image, TouchableOpacity, View, ViewStyle } from 'react-native';
 import Button from './Button';
@@ -8,40 +9,49 @@ import Wrapper from './Wrapper';
 
 interface CardProps {
 	style?: ViewStyle
+	color?: colorType
+	bColor?: colorType
+	barColor?: colorType
+	borderColor?: colorType
 	onPress?: () => void
 }
 
-const Card = ({ onPress, style }: CardProps) => {
+const Card = ({ color = "light", barColor = 'light', bColor = "primary", borderColor = "primary", onPress, style }: CardProps) => {
+	bColor = colorMap(bColor)
+	barColor = colorMap(barColor)
+	borderColor = colorMap(borderColor)
 	return <TouchableOpacity onPress={onPress} style={{
-		backgroundColor: Colors.primary,
+		backgroundColor: bColor,
 		borderRadius: Sizes.secondary,
 		flex: 1,
+		borderWidth: 1,
+		borderColor,
 		justifyContent: "space-between",
-		padding: Sizes.base,
-		height: 100,
+		padding: Sizes.bodyTop,
+		height: Sizes.cardHeight,
 		...style
 	}}>
 		<Wrapper style={{ alignItems: 'flex-start' }}>
-			<Text style={{ width: Sizes.base * 10, marginRight: Sizes.base }} color="light">Mathematic - Algebra Grade 6</Text>
+			<Text style={{ flex: .8 }} color={color}>Mathematic - Algebra grade 6</Text>
 			<View>
 				<Icon color={Colors.gold} solid name="star" />
-				<Text color="light">4.7</Text>
+				<Text color={color}>4.7</Text>
 			</View>
 		</Wrapper>
 		<View>
-			<Wrapper>
-				<Text color="light">Completed</Text>
-				<Text color="light">60%</Text>
+			<Wrapper style={{ marginVertical: Sizes.secondary }}>
+				<Text color={color}>Completed</Text>
+				<Text color={color}>60%</Text>
 			</Wrapper>
-			<Wrapper style={{ borderRadius: Sizes.secondary, height: Sizes.secondary / 2, backgroundColor: Colors.light }}>
-				<View style={{ height: '100%', width: '60%', backgroundColor: Colors.danger }} />
+			<Wrapper style={{ borderRadius: Sizes.base, height: Sizes.secondary, backgroundColor: barColor }}>
+				<View style={{ borderRadius: Sizes.base, height: '100%', width: '60%', backgroundColor: Colors.danger }} />
 			</Wrapper>
 		</View>
 	</TouchableOpacity>
 }
 
 export const CardIcon = ({ onPress, style }: CardProps) => {
-	return <TouchableOpacity onPress={onPress} style={{ marginVertical: Sizes.secondary, ...style }}>
+	return <TouchableOpacity onPress={onPress} style={{ marginVertical: Sizes.base, ...style }}>
 		<Wrapper>
 			<View style={{ backgroundColor: Colors.primary, padding: Sizes.base, borderRadius: Sizes.secondary }}>
 				<Image source={Icons.rulerPen} />

@@ -1,4 +1,4 @@
-import { flexAlignType, flexJustifyType } from '@src/utils/constants';
+import { flexAlignType, flexJustifyType } from '@src/utils/constants/type';
 import React from 'react';
 import { View, ViewProps, ViewStyle } from 'react-native';
 

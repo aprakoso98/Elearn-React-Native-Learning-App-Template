@@ -1,5 +1,5 @@
 import useValue from '@src/hooks/useValue';
-import { Sizes } from '@src/utils/constants';
+import { Colors, Sizes } from '@src/utils/constants';
 import React, { useEffect } from 'react';
 import { Animated, NativeSyntheticEvent, TextInput, TextInputFocusEventData, TextInputProps, TextStyle, ViewStyle } from 'react-native';
 import Text from './Text';
@@ -37,16 +37,19 @@ const Input = ({
 }: Props) => {
 	const [floatValue, setValue] = useValue(0, [0, 1], [0, 25])
 	const [size, setSize] = useValue(0, [0, 1], [1, 2])
-	const [color, setColor] = useValue(0, [0, 1], ["#dfdfdf", "#000000"])
+	const [fontSizeFloat, setFontSizeFloat] = useValue(0, [0, 1], [Sizes.text, Sizes.textFloat])
+	const [color, setColor] = useValue(0, [0, 1], [Colors.grey, Colors.primary])
 	useEffect(() => {
 		if (value.length > 0) {
 			setValue(1)
+			setFontSizeFloat(1)
 		}
 	}, [value])
 	return <Animated.View style={{
 		position: 'relative',
 		borderBottomColor: color,
 		borderBottomWidth: size,
+		marginVertical: Sizes.secondary,
 		...containerStyleOverride
 	}}>
 		{!noLabel && <>
@@ -54,8 +57,11 @@ const Input = ({
 				position: 'absolute',
 				bottom: floatValue,
 				...labelStyleOverride
-			}}><Text color={floatValue ? 'grey' : 'text'}>{label}</Text></Animated.View>
-			<Text color="transparent">.</Text>
+			}}>
+				{/* @ts-ignore */}
+				<Text size={fontSizeFloat} color={floatValue ? 'grey' : 'text'}>{label}</Text>
+			</Animated.View>
+			<Text size="textFloat" color="transparent">.</Text>
 		</>}
 		<Wrapper style={inputWrapperStyleOverride}>
 			<TextInput
@@ -71,10 +77,12 @@ const Input = ({
 					setValue(1)
 					setColor(1)
 					setSize(1)
+					setFontSizeFloat(1)
 					onFocus(e)
 				}}
 				onBlur={e => {
 					setValue(value.length > 0 ? 1 : 0)
+					setFontSizeFloat(value.length > 0 ? 1 : 0)
 					setColor(0)
 					setSize(0)
 					onBlur(e)

@@ -1,4 +1,5 @@
-import { Colors, colorType, Sizes, sizeType } from '@src/utils/constants'
+import { Colors, Sizes } from '@src/utils/constants'
+import { colorType, sizeType } from '@src/utils/constants/type'
 import React from 'react'
 import IconFA, { FontAwesome5IconProps } from 'react-native-vector-icons/FontAwesome5'
 

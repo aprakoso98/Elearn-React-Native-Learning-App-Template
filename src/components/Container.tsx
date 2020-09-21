@@ -1,22 +1,36 @@
 import { Colors, Sizes } from '@src/utils/constants'
+import { colorMap, colorType } from '@src/utils/constants/type'
 import React from 'react'
-import { ScrollView, View, ViewProps, ScrollViewProps, ViewStyle } from 'react-native'
+import { ScrollView, View, ViewProps, ScrollViewProps, ViewStyle, StatusBar } from 'react-native'
 
-interface Props extends ViewProps, ScrollViewProps {
+interface Props extends ViewProps {
+	style?: ViewStyle
+	barStyle?: 'dark-content' | 'light-content'
+	barColor?: colorType
+	children: React.ReactNode
+}
+
+const Container = ({ barColor = "light", barStyle = "dark-content", children, style, ...rest }: Props) => {
+	barColor = colorMap(barColor)
+	return <View style={{
+		backgroundColor: Colors.light,
+		flex: 1,
+		...style
+	}} {...rest}>
+		<StatusBar barStyle={barStyle} backgroundColor={barColor} />
+		{children}
+	</View>
+}
+
+interface BodyProps extends ViewProps, ScrollViewProps {
+	noMargin?: boolean
+	noPadding?: boolean
+	scrollable?: boolean
 	style?: ViewStyle
 	children: React.ReactNode
 }
 
-const Container = ({ style, ...rest }: Props) => {
-	return <View style={{
-		backgroundColor: Colors.light,
-		// padding: Sizes.base * 2,
-		flex: 1,
-		...style
-	}} {...rest} />
-}
-
-export const Body = ({ noMargin, noPadding, scrollable, style, ...rest }: Props & { noMargin?: boolean, noPadding?: boolean, scrollable?: boolean }) => {
+export const Body = ({ noMargin, noPadding, scrollable, style, ...rest }: BodyProps) => {
 	const props = {
 		...rest,
 		style: {

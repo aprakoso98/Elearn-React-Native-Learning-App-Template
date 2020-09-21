@@ -10,7 +10,7 @@ type ItemType = {
 	index: number
 }
 
-interface Props {
+interface Props {// extends SnapCarousel<{}> {
 	renderItem: (
 		item: ItemType,
 		parallaxProps?: AdditionalParallaxProps,
@@ -23,15 +23,13 @@ interface Props {
 }
 
 /* @ts-ignore  */
-const Carousel = forwardRef(({ onSnapToItem, hasPagination, renderItem, data, style }: Props, forwardedRef?: (event: SnapCarousel<{}>) => void) => {
+const Carousel: React.FC<Props> = forwardRef(({ onSnapToItem, hasPagination, renderItem, data, style }, forwardedRef?: (event: SnapCarousel<{}>) => void) => {
 	const [state, setState] = useStateObject({
+		activeIndex: 0,
 		layout: { width: 1 }
 	})
 	return <View onLayout={({ nativeEvent: { layout } }) => setState({ layout })} style={{ flex: 1, ...style }}>
 		<SnapCarousel
-			vertical
-			
-			enableSnap={false}
 			data={data}
 			ref={forwardedRef}
 			/* @ts-ignore  */
@@ -40,9 +38,9 @@ const Carousel = forwardRef(({ onSnapToItem, hasPagination, renderItem, data, st
 				if (onSnapToItem) onSnapToItem(activeIndex)
 				setState({ activeIndex })
 			}}
-			sliderHeight={state.layout.height}
 			useScrollView
-			itemHeight={state.layout.height}
+			sliderWidth={state.layout.width}
+			itemWidth={state.layout.width}
 		/>
 		{hasPagination && <Pagination
 			containerStyle={styles.pagination}
@@ -72,6 +70,6 @@ const styles = StyleSheet.create({
 		position: 'absolute',
 		bottom: 0,
 		alignSelf: 'center',
-		paddingVertical: Sizes.base * 2
+		paddingVertical: Sizes.bodyTop
 	}
 })

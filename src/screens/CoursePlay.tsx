@@ -9,7 +9,7 @@ import React from 'react';
 import { Image, ImageBackground, View } from 'react-native';
 
 const CoursePlay = ({ navigation }: ScreenProps) => {
-	return <Container>
+	return <Container barColor="dark" barStyle="light-content">
 		<Header backgroundColor="transparent" color="light" absolute onPressLeft={() => navigation.goBack()} />
 		<ImageBackground style={{ width: '100%', height: Constants.MAX_HEIGHT / 3 }} source={Images.emc2}>
 			<View style={{

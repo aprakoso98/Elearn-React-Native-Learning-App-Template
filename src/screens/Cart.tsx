@@ -9,6 +9,7 @@ import { useStateObject } from '@src/hooks/useState';
 import { Sizes } from '@src/utils/constants';
 import { ScreenProps } from '@src/utils/types';
 import React from 'react';
+import { fromRight } from 'react-navigation-transitions';
 
 const Cart = ({ navigation }: ScreenProps) => {
 	return <Container>
@@ -21,9 +22,9 @@ const Cart = ({ navigation }: ScreenProps) => {
 			</Wrapper>
 			<Input editable={false} label="by George Smith" />
 			<Text color="grey" style={{ marginVertical: Sizes.base }}>Do you have promotional code?</Text>
-			<Input label="CARD HOLDER" value="ELERNDISCOUNT10" renderRightAccessory={() => <Icon color="success" name="check" />} />
+			<Input label="CODE" value="ELERNDISCOUNT10" renderRightAccessory={() => <Icon color="success" name="check" />} />
 		</Body>
-		<Button withMargin>PLACE ORDER</Button>
+		<Button onPress={() => navigation.navigate('Payment', { transition: fromRight })} withMargin>PLACE ORDER</Button>
 	</Container>
 }
 

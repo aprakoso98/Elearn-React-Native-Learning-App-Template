@@ -1,7 +1,6 @@
-import { Colors, colorType, Sizes } from '@src/utils/constants';
+import { Colors,  Sizes } from '@src/utils/constants';
 import React from 'react';
-import { Modal as ModalRN, TouchableOpacity, View, ViewProps, ViewStyle } from 'react-native';
-import Button from './Button';
+import { Modal as ModalRN, TouchableOpacity, ViewProps, ViewStyle } from 'react-native';
 
 export interface Props extends ViewProps {
 	style?: ViewStyle

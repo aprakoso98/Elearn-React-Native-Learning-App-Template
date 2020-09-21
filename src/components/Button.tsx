@@ -1,10 +1,11 @@
-import { alignType, colorType, Sizes } from '@src/utils/constants';
+import { Sizes } from '@src/utils/constants';
 import React from 'react';
 import { TouchableOpacity, ViewStyle } from 'react-native'
 import Text from './Text';
 import { Colors } from '../utils/constants';
 import Wrapper, { WrapperProps } from './Wrapper';
 import Icon from './Icon';
+import { colorType } from '@src/utils/constants/type';
 
 interface Props extends Omit<WrapperProps, 'children'> {
 	children: string | React.ReactNode
@@ -14,6 +15,8 @@ interface Props extends Omit<WrapperProps, 'children'> {
 	bColor?: colorType
 	isTransparent?: boolean
 	withMargin?: boolean
+	withMarginHorizontal?: boolean
+	withMarginVertical?: boolean
 	isLink?: boolean
 	onPress?: (any) => any
 }
@@ -21,6 +24,8 @@ interface Props extends Omit<WrapperProps, 'children'> {
 const Button = ({
 	isTransparent,
 	withMargin,
+	withMarginHorizontal,
+	withMarginVertical,
 	isLink,
 	color,
 	bColor,
@@ -35,6 +40,8 @@ const Button = ({
 	}
 	return <TouchableOpacity style={{
 		...withMargin && { marginVertical: Sizes.bodyTop, marginHorizontal: Sizes.bodyPadding },
+		...withMarginHorizontal && { marginHorizontal: Sizes.bodyPadding },
+		...withMarginVertical && { marginVertical: Sizes.bodyTop },
 		...containerStyle
 	}} onPress={onPress}>
 		<Wrapper justifyContent={typeof children === 'string' ? 'center' : undefined} style={{

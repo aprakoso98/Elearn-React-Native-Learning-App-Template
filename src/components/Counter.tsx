@@ -9,7 +9,7 @@ const Counter = ({ counter, title }: { counter: string, title: string }) => {
 		borderRadius: Sizes.secondary,
 		backgroundColor: Colors.greySoft
 	}}>
-		<Text size="heading3" align="center" color="primary">{counter}</Text>
+		<Text size="heading1" align="center" color="primary">{counter}</Text>
 		<Text align="center">{title}</Text>
 	</View>
 }

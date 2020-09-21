@@ -1,32 +1,38 @@
-import { Colors, Sizes, colorType, alignType, sizeType } from '@src/utils/constants';
+import { Sizes } from '@src/utils/constants';
+import { colorType, alignType, sizeType, colorMap, sizeMap, fontType, fontMap } from '@src/utils/constants/type';
 import React from 'react';
-import { Text as TextRN, TextStyle } from 'react-native'
+import { Animated, TextStyle } from 'react-native'
 
 interface Props {
 	style?: TextStyle
 	color?: colorType
 	align?: alignType
 	size?: sizeType
+	font?: fontType
 	children: React.ReactNode
 	onPress?: (any) => any
 }
 
 const Text = ({
-	size = "text",
-	align: textAlign = 'left',
-	color = 'text',
+	size,
+	color,
 	onPress,
 	style,
-	children
+	font,
+	children,
+	align: textAlign,
 }: Props) => {
-	const colorText = Colors[color] ? Colors[color] : color
-	const fontSize = Sizes[size] ? Sizes[size] : size
-	return <TextRN onPress={onPress} style={{
+	const colorText = colorMap(color)
+	const fontSize = sizeMap(size)
+	const fontFamily = fontMap(font)
+	return <Animated.Text onPress={onPress} style={{
 		textAlign,
 		color: colorText,
 		fontSize,
+		fontFamily,
+		marginVertical: Sizes.spacingText,
 		...style
-	}}>{children}</TextRN>
+	}}>{children}</Animated.Text>
 }
 
 export default Text
