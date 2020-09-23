@@ -15,11 +15,12 @@ interface Props {
 	data: tabDataType
 	positionMenu?: 'top' | 'bottom' | 'right' | 'left'
 	tabMenuProps?: Omit<WrapperProps, 'children'>
+	onChangeTab?: (activeIndex: number) => void
 	renderTab?: (data: tabDataType) => React.ReactNode
 }
 
 let myRef
-const TabView = ({ positionMenu = 'top', renderTab, tabMenuProps, data }: Props) => {
+const TabView = ({ onChangeTab, positionMenu = 'top', renderTab, tabMenuProps, data }: Props) => {
 	const direction = { top: 'column', right: 'row-reverse', bottom: 'column-reverse', left: 'row' }
 	const flexDirection = direction[positionMenu]
 	const [state, setState] = useStateObject({
@@ -41,7 +42,10 @@ const TabView = ({ positionMenu = 'top', renderTab, tabMenuProps, data }: Props)
 			// @ts-ignore
 			ref={ref => myRef = ref}
 			data={data}
-			onSnapToItem={activeIndex => setState({ activeIndex })}
+			onSnapToItem={activeIndex => {
+				setState({ activeIndex })
+				if (onChangeTab) onChangeTab(activeIndex)
+			}}
 			renderItem={({ item }) => item.tabData}
 		/>
 	</View >

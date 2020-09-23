@@ -1,5 +1,5 @@
 import Button from '@src/components/Button';
-import Container, { Body } from '@src/components/Container';
+import Container, { Body, Divider } from '@src/components/Container';
 import Header from '@src/components/Header';
 import Icon from '@src/components/Icon';
 import Input from '@src/components/Input';
@@ -15,14 +15,15 @@ const Cart = ({ navigation }: ScreenProps) => {
 	return <Container>
 		<Header onPressLeft={() => navigation.goBack()} />
 		<Body scrollable>
-			<Text size={Sizes.heading3}>Cart</Text>
+			<Text size="heading1">Cart</Text>
 			<Wrapper style={{ marginTop: Sizes.bodyTop }}>
 				<Text>Mathematic - Algebra grade 6</Text>
 				<Text>$10</Text>
 			</Wrapper>
-			<Input editable={false} label="by George Smith" />
+			<Text color="grey">by George Smith</Text>
+			<Divider style={{ marginTop: Sizes.bodyTop }} />
 			<Text color="grey" style={{ marginVertical: Sizes.base }}>Do you have promotional code?</Text>
-			<Input label="CODE" value="ELERNDISCOUNT10" renderRightAccessory={() => <Icon color="success" name="check" />} />
+			<Input label="CODE" borderTintColor="success" value="ELERNDISCOUNT10" renderRightAccessory={() => <Icon color="success" name="check" />} />
 		</Body>
 		<Button onPress={() => navigation.navigate('Payment', { transition: fromRight })} withMargin>PLACE ORDER</Button>
 	</Container>

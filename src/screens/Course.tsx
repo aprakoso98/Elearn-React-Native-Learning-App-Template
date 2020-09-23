@@ -1,7 +1,6 @@
 import Button from '@src/components/Button';
 import Container, { Body } from '@src/components/Container';
 import Counter from '@src/components/Counter';
-import Gradient from '@src/components/Gradient';
 import Header from '@src/components/Header';
 import Icon from '@src/components/Icon';
 import TabView, { tabDataType } from '@src/components/TabView';
@@ -9,31 +8,27 @@ import Text from '@src/components/Text';
 import Wrapper from '@src/components/Wrapper';
 import { Colors, Sizes } from '@src/utils/constants';
 import { ScreenProps } from '@src/utils/types';
-import React from 'react';
+import React, { useState } from 'react';
 import { View } from 'react-native';
 import { fromBottom, fromRight } from 'react-navigation-transitions';
 
 const Course = ({ navigation }: ScreenProps) => {
 	const { paid } = navigation.state.params || {}
+	const [index, setIndex] = useState(0)
 	const tabData: tabDataType = [
 		{
-			tabName: "Information", tabData: <View style={{ marginTop: Sizes.base, marginHorizontal: Sizes.bodyPadding }}>
+			tabName: "Info", tabData: <View style={{ marginTop: Sizes.base, marginHorizontal: Sizes.bodyPadding }}>
 				<Wrapper style={{ marginBottom: Sizes.base }}>
-					<Counter counter="16" title="Lessons" />
-					<Counter counter="10" title="Experiences" />
-					<Counter counter="5k" title="Students" />
+					<Counter style={{ flex: .3 }} counter="16" title="Lessons" />
+					<Counter style={{ flex: .3 }} counter="10" title="Exp" />
+					<Counter style={{ flex: .3 }} counter="5k" title="Students" />
 				</Wrapper>
-				<Text>{`				Sint adipisicing excepteur irure elit irure. Voluptate aute sit est esse labore laborum eiusmod dolor cupidatat sint veniam. Magna eiusmod sint quis dolor minim esse sit deserunt aliqua eiusmod exercitation duis. Duis proident magna Lorem dolor est mollit minim amet.\n
-				Elit enim magna excepteur adipisicing aliqua aliquip ad dolor sit ullamco proident. Ipsum velit adipisicing laborum ex ut aliquip nisi enim pariatur nostrud occaecat nostrud. Veniam anim minim consectetur ea. Et qui cillum deserunt commodo qui.`}</Text>
-				<Gradient style={{ position: 'absolute', width: '100%', height: '100%', }} colors={["transparent", "light"]}>
-					<Text color="transparent">.</Text>
-				</Gradient>
-				{paid && <Button withMarginVertical>CONTINUE THE LESSON</Button>}
+				<Text color="grey">Sint adipisicing excepteur irure elit irure. Voluptate aute sit est esse labore laborum eiusmod dolor cupidatat sint veniam. Magna eiusmod sint quis dolor minim esse sit deserunt aliqua eiusmod exercitation duis. Duis proident magna Lorem dolor est mollit minim amet. Elit enim magna excepteur adipisicing aliqua aliquip ad dolor sit ullamco proident. Ipsum velit adipisicing laborum ex ut aliquip nisi enim pariatur nostrud occaecat nostrud. Veniam anim minim consectetur ea. Et qui cillum deserunt commodo qui.</Text>
 			</View>
 		},
 		{
 			tabName: "Lesson", tabData: <View style={{ marginTop: Sizes.base, marginHorizontal: Sizes.bodyPadding }}>
-				{[1, 2, 3, 4, 5, 6, 7].map(i => <Wrapper key={i.toString()} style={{ paddingVertical: Sizes.secondary }} alignItems="flex-start">
+				{[1, 2, 3, 4, 5].map(i => <Wrapper key={i.toString()} style={{ paddingVertical: Sizes.secondary }} alignItems="flex-start">
 					<Text style={{ width: Sizes.bodyPadding / 1.5 }}>{i}</Text>
 					<View style={{ flex: 1 }}>
 						<Text>Lorem ipsum dolor sit amet</Text>
@@ -50,9 +45,6 @@ const Course = ({ navigation }: ScreenProps) => {
 						<Icon color="light" name="play" />
 					</Button>
 				</Wrapper>)}
-				{/* <Gradient style={{ position: 'absolute', width: '100%', height: '100%', }} colors={["transparent", "light"]}>
-					<Text color="transparent">.</Text>
-				</Gradient> */}
 			</View>
 		},
 		{
@@ -67,10 +59,6 @@ const Course = ({ navigation }: ScreenProps) => {
 						<Text>4.7</Text>
 					</View>
 				</Wrapper>)}
-				<Gradient style={{ position: 'absolute', width: '100%', height: '100%', }} colors={["transparent", "light"]}>
-					<Text color="transparent">.</Text>
-				</Gradient>
-				<Button>SUBMIT REVIEW FOR THIS COURSE</Button>
 			</View>
 		},
 	]
@@ -93,12 +81,20 @@ const Course = ({ navigation }: ScreenProps) => {
 				</Wrapper>
 			</View>
 			{!paid && <Button onPress={() => navigation.navigate('Cart', { transition: fromBottom })} withMargin>TAKE THIS COURSE FOR $10</Button>}
-			<TabView tabMenuProps={{
-				style: {
-					paddingHorizontal: Sizes.bodyPadding
-				}
-			}} data={tabData} />
+			<TabView
+				onChangeTab={(i) => setIndex(i)}
+				tabMenuProps={{
+					style: {
+						paddingHorizontal: Sizes.bodyPadding
+					}
+				}}
+				data={tabData}
+			/>
 		</Body>
+		{paid && <>
+			{index === 0 && <Button withMargin>CONTINUE THE LESSON</Button>}
+			{index === 2 && <Button withMargin>SUBMIT REVIEW FOR THIS COURSE</Button>}
+		</>}
 	</Container>
 }
 

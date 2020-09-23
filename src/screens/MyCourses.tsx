@@ -43,7 +43,7 @@ const MyCourses = ({ navigation }: ScreenProps) => {
 	return <Container>
 		<Header onPressLeft={() => navigation.goBack()} />
 		<Body scrollable style={{ paddingHorizontal: 0 }}>
-			<Text style={{ marginHorizontal: Sizes.bodyPadding }} size="heading3" >{params.title || 'My Courses'}</Text>
+			<Text style={{ marginHorizontal: Sizes.bodyPadding }} size="heading1" >{params.title || 'My Courses'}</Text>
 			<TabView tabMenuProps={{ style: { display: params.title ? 'none' : 'flex', paddingHorizontal: Sizes.base * 4 } }} data={dataTab} />
 		</Body>
 	</Container>

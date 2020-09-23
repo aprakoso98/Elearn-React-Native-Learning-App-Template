@@ -70,6 +70,6 @@ const styles = StyleSheet.create({
 		position: 'absolute',
 		bottom: 0,
 		alignSelf: 'center',
-		paddingVertical: Sizes.bodyTop
+		paddingVertical: Sizes.bodyPadding - Sizes.base
 	}
 })

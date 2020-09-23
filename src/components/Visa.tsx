@@ -1,10 +1,10 @@
 import { Colors, Icons, Images, Sizes } from '@src/utils/constants';
 import React from 'react';
-import { Image, View } from 'react-native';
+import { Image, View, ViewStyle } from 'react-native';
 import Text from './Text';
 import Wrapper from './Wrapper';
 
-const Visa = ({ style }) => {
+const Visa = ({ style }: { style?: ViewStyle }) => {
 	return <View style={{ borderRadius: Sizes.secondary, overflow: 'hidden', position: 'relative', ...style }}>
 		<Image style={{ position: 'absolute' }} source={Images.debit} />
 		<View style={{ padding: Sizes.bodyTop, backgroundColor: Colors.primaryTransparent }}>

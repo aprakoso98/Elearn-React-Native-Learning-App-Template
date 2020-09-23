@@ -29,9 +29,9 @@ const Alert = ({
 	...rest
 }: Props) => {
 	return <Modal {...rest} style={{ paddingHorizontal: Sizes.base * 3, paddingVertical: Sizes.base * 3 }}>
-		{iconName && <Icon style={{ alignSelf: 'center' }} color={Colors.primary} size={Sizes.heading1} name={iconName} />}
+		{iconName && <Icon style={{ alignSelf: 'center' }} color={Colors.primary} iconSize="logo" name={iconName} />}
 		{title && <Text style={{ marginTop: Sizes.base }} align="center" size={Sizes.heading4}>{title}</Text>}
-		<Text style={{ paddingVertical: Sizes.base * 2 }} align="center">{subTitle}</Text>
+		<Text color="grey" style={{ paddingVertical: Sizes.bodyTop }} align="center">{subTitle}</Text>
 		<View style={{ marginTop: Sizes.base * 2 }}>
 			<Button onPress={okButton.onPress}>{okButton.text}</Button>
 			{cancelButton && <Button containerStyle={{ marginTop: Sizes.base }} isLink onPress={cancelButton.onPress} color="text">{cancelButton.text}</Button>}

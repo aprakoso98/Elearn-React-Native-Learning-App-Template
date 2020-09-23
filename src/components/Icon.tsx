@@ -1,7 +1,6 @@
-import { Colors, Sizes } from '@src/utils/constants'
-import { colorType, sizeType } from '@src/utils/constants/type'
 import React from 'react'
 import IconFA, { FontAwesome5IconProps } from 'react-native-vector-icons/FontAwesome5'
+import { colorMap, colorType, sizeMap, sizeType } from '@src/utils/constants/type'
 
 export type IconProps = FontAwesome5IconProps & {
 	color?: colorType
@@ -9,8 +8,8 @@ export type IconProps = FontAwesome5IconProps & {
 }
 
 const Icon = ({ iconSize = "text", color = "text", ...rest }: IconProps) => {
-	color = Colors[color] ? Colors[color] : color
-	iconSize = Sizes[iconSize] ? Sizes[iconSize] : iconSize
+	color = colorMap(color)
+	iconSize = sizeMap(iconSize)
 	// @ts-ignore
 	return <IconFA size={iconSize} color={color} {...rest} />
 }

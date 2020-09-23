@@ -1,7 +1,7 @@
-import { Colors, Sizes } from '@src/utils/constants'
-import { colorMap, colorType } from '@src/utils/constants/type'
 import React from 'react'
-import { ScrollView, View, ViewProps, ScrollViewProps, ViewStyle, StatusBar } from 'react-native'
+import { Colors, Sizes } from '@src/utils/constants'
+import { colorMap, colorType, sizeMap, sizeType } from '@src/utils/constants/type'
+import { ScrollView, Animated, View, ViewProps, ScrollViewProps, ViewStyle, StatusBar } from 'react-native'
 
 interface Props extends ViewProps {
 	style?: ViewStyle
@@ -41,6 +41,22 @@ export const Body = ({ noMargin, noPadding, scrollable, style, ...rest }: BodyPr
 		}
 	}
 	return scrollable ? <ScrollView {...props} /> : <View {...props} />
+}
+
+interface DividerProps {
+	color?: colorType
+	size?: sizeType
+	direction?: 'horizontal' | 'vertical'
+	style?: ViewStyle
+}
+
+export const Divider = ({ style, color, size = 1, direction = "horizontal" }: DividerProps) => {
+	return <Animated.View style={{
+		backgroundColor: colorMap(color),
+		padding: sizeMap(size) / 2,
+		...direction === 'vertical' && { height: '100%' },
+		...style
+	}} />
 }
 
 export default Container

@@ -61,7 +61,7 @@ export const CardIcon = ({ onPress, style }: CardProps) => {
 				<Text color="grey">by George Smith</Text>
 			</View>
 			<View>
-				<Icon color={Colors.gold} solid name="star" />
+				<Icon color="gold" solid name="star" />
 				<Text>4.7</Text>
 			</View>
 		</Wrapper>

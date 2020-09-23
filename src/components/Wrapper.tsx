@@ -1,6 +1,6 @@
 import { flexAlignType, flexJustifyType } from '@src/utils/constants/type';
 import React from 'react';
-import { View, ViewProps, ViewStyle } from 'react-native';
+import { Animated, ViewProps, ViewStyle } from 'react-native';
 
 export interface WrapperProps extends ViewProps {
 	justifyContent?: flexJustifyType
@@ -11,9 +11,9 @@ export interface WrapperProps extends ViewProps {
 }
 
 const Wrapper = ({ alignItems, justifyContent, direction, children, style }: WrapperProps) => {
-	return <View style={{ justifyContent, alignItems, flexDirection: direction, ...style }}>
+	return <Animated.View style={{ justifyContent, alignItems, flexDirection: direction, ...style }}>
 		{children}
-	</View>
+	</Animated.View>
 }
 
 Wrapper.defaultProps = {

@@ -14,8 +14,8 @@ export interface sceneType {
 }
 
 const Switch = createSwitchNavigator({
-	UnAuthNavigator,
 	AuthNavigator,
+	UnAuthNavigator,
 })
 const RouteNavigator = createAppContainer(Switch)
 

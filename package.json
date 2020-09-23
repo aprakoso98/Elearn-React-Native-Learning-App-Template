@@ -3,8 +3,8 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "jk": "node scripts/scripts.ts install",
-    "app": "adb install android/app/build/outputs/apk/release/app-release.apk",
+    "move": "node scripts/scripts.ts move",
+    "app": "node scripts/scripts.ts install",
     "c": "node scripts/scripts.ts connect",
     "cl": "cd android && ./gradlew clean",
     "cleanr": "yarn cl && yarn android",

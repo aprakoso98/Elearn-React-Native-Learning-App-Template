@@ -30,7 +30,7 @@ const Home = ({ navigation }: ScreenProps) => {
 		</Header>
 		<Body noPadding scrollable>
 			<View style={{ marginHorizontal: Sizes.bodyPadding }}>
-				<Text size={Sizes.heading3}>What do you like to start learning?</Text>
+				<Text size="heading1">What do you like to start learning?</Text>
 				<Input
 					noLabel
 					value={search}
@@ -43,7 +43,7 @@ const Home = ({ navigation }: ScreenProps) => {
 					<Button onPress={() => navigation.navigate('MyCourses', { paid: true, transition: fromRight })} isTransparent color="primary">See all</Button>
 				</Wrapper>
 			</View>
-			<ScrollView contentContainerStyle={{ paddingHorizontal: Sizes.bodyPadding }} showsHorizontalScrollIndicator={false} horizontal>
+			<ScrollView contentContainerStyle={{ paddingVertical:Sizes.base, paddingHorizontal: Sizes.bodyPadding }} showsHorizontalScrollIndicator={false} horizontal>
 				<Card onPress={() => navigation.navigate('Course', { paid: true, transition: fromRight })} style={{ width: 250 }} />
 				<Card color="text" bColor="light" borderColor="grey" barColor="greySoft" onPress={() => navigation.navigate('Course', { paid: true, transition: fromRight })} style={{ width: 250, marginHorizontal: Sizes.base }} />
 				<Card color="text" bColor="light" borderColor="grey" barColor="greySoft" onPress={() => navigation.navigate('Course', { paid: true, transition: fromRight })} style={{ width: 250 }} />

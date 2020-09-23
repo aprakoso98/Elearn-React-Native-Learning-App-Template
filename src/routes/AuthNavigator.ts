@@ -34,6 +34,7 @@ const Navs: StackNavProps = {
 
 const Stack = createStackNavigator(Navs, {
 	headerMode: "none",
+	initialRouteName: "Account",
 	transitionConfig: nav => handleCustomTransition(nav),
 })
 

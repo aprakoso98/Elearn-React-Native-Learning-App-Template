@@ -1,5 +1,5 @@
 import { Sizes } from '@src/utils/constants';
-import React from 'react';
+import React, { FC } from 'react';
 import { TouchableOpacity, ViewStyle } from 'react-native'
 import Text from './Text';
 import { Colors } from '../utils/constants';
@@ -67,7 +67,8 @@ Button.defaultProps = {
 	bColor: 'primary'
 }
 
-export const ButtonChevron = ({ style, label, children, ...rest }: {
+export const ButtonChevron = ({ noChevron, style, label, children, ...rest }: {
+	noChevron?: boolean,
 	label?: string,
 	children?: React.ReactNode | string
 } & Omit<Props, 'children'>) => {
@@ -86,7 +87,7 @@ export const ButtonChevron = ({ style, label, children, ...rest }: {
 				{children && <Text style={{ flex: .9 }} align="right" color="grey">{children}</Text>}
 			</> : children
 		}
-		<Icon name="chevron-right" />
+		{!noChevron && <Icon name="chevron-right" />}
 	</Button>
 }
 

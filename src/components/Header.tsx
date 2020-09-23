@@ -4,6 +4,7 @@ import React from 'react';
 import Button from './Button';
 import Icon, { IconProps } from './Icon';
 import Wrapper from './Wrapper';
+import { colorMap } from '@src/utils/constants/type';
 
 interface Props {
 	iconLeft?: React.ReactNode | string
@@ -16,8 +17,8 @@ interface Props {
 }
 
 const Header = ({ absolute, color = "text", backgroundColor = "light", onPressLeft, children, iconLeft = "arrow-left" }: Props) => {
-	backgroundColor = Colors[backgroundColor] ? Colors[backgroundColor] : backgroundColor
-	color = Colors[color] ? Colors[color] : color
+	backgroundColor = colorMap(backgroundColor)
+	color = colorMap(color)
 	return <Wrapper style={{
 		...absolute && {
 			zIndex: 99,
@@ -29,6 +30,6 @@ const Header = ({ absolute, color = "text", backgroundColor = "light", onPressLe
 	</Wrapper>
 }
 
-export const IconHeader = (props: IconProps) => <Icon size={Sizes.iconHeader} {...props} />
+export const IconHeader = (props: IconProps) => <Icon iconSize="iconHeader" {...props} />
 
 export default Header

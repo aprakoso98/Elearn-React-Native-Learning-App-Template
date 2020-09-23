@@ -34,49 +34,13 @@ const Notification = ({ navigation }: ScreenProps) => {
 			</Button>
 		</Header>
 		<Body scrollable>
-			<Text size="heading3">Notification</Text>
-			<ButtonChevron>
+			<Text size="heading1">Notification</Text>
+			{[1, 2, 3, 4, 5, 6, 7, 8, 9].map(i => <ButtonChevron key={i.toString()}>
 				<View style={{ flex: 1 }}>
 					<Text size="heading5" color="primary">Transaction success</Text>
-					<Text>Irure nulla aliquip exercitation nostrud. Proident cupidatat officia eiusmod elit pariatur fugiat duis consequat in sunt. </Text>
+					<Text color="grey">Irure nulla aliquip exercitation nostrud. Proident cupidatat officia eiusmod elit pariatur fugiat duis consequat in sunt. </Text>
 				</View>
-			</ButtonChevron>
-			<ButtonChevron>
-				<View style={{ flex: 1 }}>
-					<Text size="heading5" color="primary">Transaction success</Text>
-					<Text>Irure nulla aliquip exercitation nostrud. Proident cupidatat officia eiusmod elit pariatur fugiat duis consequat in sunt. </Text>
-				</View>
-			</ButtonChevron>
-			<ButtonChevron>
-				<View style={{ flex: 1 }}>
-					<Text size="heading5" color="primary">Transaction success</Text>
-					<Text>Irure nulla aliquip exercitation nostrud. Proident cupidatat officia eiusmod elit pariatur fugiat duis consequat in sunt. </Text>
-				</View>
-			</ButtonChevron>
-			<ButtonChevron>
-				<View style={{ flex: 1 }}>
-					<Text size="heading5" color="primary">Transaction success</Text>
-					<Text>Irure nulla aliquip exercitation nostrud. Proident cupidatat officia eiusmod elit pariatur fugiat duis consequat in sunt. </Text>
-				</View>
-			</ButtonChevron>
-			<ButtonChevron>
-				<View style={{ flex: 1 }}>
-					<Text size="heading5" color="primary">Transaction success</Text>
-					<Text>Irure nulla aliquip exercitation nostrud. Proident cupidatat officia eiusmod elit pariatur fugiat duis consequat in sunt. </Text>
-				</View>
-			</ButtonChevron>
-			<ButtonChevron>
-				<View style={{ flex: 1 }}>
-					<Text size="heading5" color="primary">Transaction success</Text>
-					<Text>Irure nulla aliquip exercitation nostrud. Proident cupidatat officia eiusmod elit pariatur fugiat duis consequat in sunt. </Text>
-				</View>
-			</ButtonChevron>
-			<ButtonChevron>
-				<View style={{ flex: 1 }}>
-					<Text size="heading5" color="primary">Transaction success</Text>
-					<Text>Irure nulla aliquip exercitation nostrud. Proident cupidatat officia eiusmod elit pariatur fugiat duis consequat in sunt. </Text>
-				</View>
-			</ButtonChevron>
+			</ButtonChevron>)}
 		</Body>
 	</Container>
 }

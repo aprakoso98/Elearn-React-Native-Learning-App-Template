@@ -1,5 +1,6 @@
 import useValue from '@src/hooks/useValue';
 import { Colors, Sizes } from '@src/utils/constants';
+import { colorMap, colorType } from '@src/utils/constants/type';
 import React, { useEffect } from 'react';
 import { Animated, NativeSyntheticEvent, TextInput, TextInputFocusEventData, TextInputProps, TextStyle, ViewStyle } from 'react-native';
 import Text from './Text';
@@ -20,6 +21,8 @@ interface Props extends TextInputProps {
 	}) => React.ReactNode
 	onFocus?: (e: NativeSyntheticEvent<TextInputFocusEventData>) => void
 	onBlur?: (e: NativeSyntheticEvent<TextInputFocusEventData>) => void
+	borderBaseColor?: colorType
+	borderTintColor?: colorType
 }
 
 const Input = ({
@@ -29,6 +32,8 @@ const Input = ({
 	onBlur = () => null,
 	onFocus = () => null,
 	renderRightAccessory = () => null,
+	borderBaseColor = "grey",
+	borderTintColor = "primary",
 	containerStyle: containerStyleOverride,
 	labelStyle: labelStyleOverride,
 	inputWrapperStyle: inputWrapperStyleOverride,
@@ -38,7 +43,7 @@ const Input = ({
 	const [floatValue, setValue] = useValue(0, [0, 1], [0, 25])
 	const [size, setSize] = useValue(0, [0, 1], [1, 2])
 	const [fontSizeFloat, setFontSizeFloat] = useValue(0, [0, 1], [Sizes.text, Sizes.textFloat])
-	const [color, setColor] = useValue(0, [0, 1], [Colors.grey, Colors.primary])
+	const [color, setColor] = useValue(0, [0, 1], [colorMap(borderBaseColor), colorMap(borderTintColor)])
 	useEffect(() => {
 		if (value.length > 0) {
 			setValue(1)

@@ -51,9 +51,10 @@ const Colors: { [key in colorType]: string } = {
 	dark: '#707070',
 	greySoft: '#f2f2f2',
 	light: '#ffffff',
+	success: '#80d583',
 	primary: '#ce7968',
 	primaryTransparent: 'rgba(206,121,104,.5)',
-	success: '#80d583',
+	greyTransparent: 'rgba(172,172,172,.76)',
 	blackTransparent: 'rgba(0,0,0,.5)',
 	transparent: 'transparent'
 }

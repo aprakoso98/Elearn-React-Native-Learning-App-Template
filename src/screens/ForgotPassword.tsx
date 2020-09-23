@@ -1,13 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { View } from 'react-native';
 import Container, { Body } from '@src/components/Container';
 import Text from '@src/components/Text';
 import { ScreenProps } from '@src/utils/types';
-import { Colors, Sizes } from '@src/utils/constants';
+import { Sizes } from '@src/utils/constants';
 import Input from '@src/components/Input';
 import Button from '@src/components/Button';
 import { useStateObject } from '@src/hooks/useState';
-import Icon from '@src/components/Icon';
 import { LogoText } from './Login';
 import Alert from '@src/components/Alert';
 

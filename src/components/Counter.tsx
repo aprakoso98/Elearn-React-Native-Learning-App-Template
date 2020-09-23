@@ -1,13 +1,20 @@
 import { Colors, Sizes } from '@src/utils/constants';
 import React from 'react';
-import { View } from 'react-native';
+import { View, ViewStyle } from 'react-native';
 import Text from './Text';
 
-const Counter = ({ counter, title }: { counter: string, title: string }) => {
+interface Props {
+	style?: ViewStyle
+	counter: string
+	title: string
+}
+
+const Counter = ({ style, counter, title }: Props) => {
 	return <View style={{
 		padding: Sizes.base,
 		borderRadius: Sizes.secondary,
-		backgroundColor: Colors.greySoft
+		backgroundColor: Colors.greySoft,
+		...style
 	}}>
 		<Text size="heading1" align="center" color="primary">{counter}</Text>
 		<Text align="center">{title}</Text>

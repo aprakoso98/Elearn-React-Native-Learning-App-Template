@@ -23,7 +23,7 @@ const Modal = ({
 		<TouchableOpacity onPress={onBackdropClick} style={{
 			...!fullScreen && { padding: Sizes.bodyPadding },
 			justifyContent: fullScreen ? 'flex-start' : 'center',
-			backgroundColor: Colors.blackTransparent,
+			backgroundColor: Colors.greyTransparent,
 			flex: 1,
 		}}>
 			<TouchableOpacity activeOpacity={1} {...rest} style={[
