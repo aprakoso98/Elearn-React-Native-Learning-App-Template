@@ -15,7 +15,7 @@ const Intro = ({ navigation }: ScreenProps) => {
 	const { width, height } = Dimensions.get('window')
 	const data = [Images.familyLearn, Images.teacher, Images.student]
 	const renderItem = ({ item }) => <Wrapper direction="column" style={{ flex: 1, overflow: 'hidden' }}>
-		<Image style={{ position: 'absolute', width: width * 1.3, height: height * 1.3 }} source={item} />
+		<Image style={{ position: 'absolute', width, height }} source={item} />
 		<Gradient start={{ x: .5, y: .5 }} end={{ x: .5, y: 1 }} style={{ justifyContent: 'space-between', width: '100%', flex: 1, paddingVertical: Sizes.bodyPadding }} colors={["transparent", "light"]}>
 			<View>
 				<Text color="light" align="center" size="logo">elern<Text color="primary" size="logo">.</Text></Text>

@@ -7,9 +7,9 @@ import Wrapper from './Wrapper';
 const Visa = ({ style }: { style?: ViewStyle }) => {
 	return <View style={{ borderRadius: Sizes.secondary, overflow: 'hidden', position: 'relative', ...style }}>
 		<Image style={{ position: 'absolute' }} source={Images.debit} />
-		<View style={{ padding: Sizes.bodyTop, backgroundColor: Colors.primaryTransparent }}>
+		<View style={{ padding: Sizes.bodyVertical, backgroundColor: Colors.primaryTransparent }}>
 			<Image source={Icons.visa} />
-			<Text style={{ marginTop: Sizes.bodyTop, marginBottom: Sizes.bodyPadding }} size="heading4" color="light">**** **** **** 1234</Text>
+			<Text style={{ marginTop: Sizes.bodyVertical, marginBottom: Sizes.bodyPadding }} size="heading4" color="light">**** **** **** 1234</Text>
 			<Wrapper>
 				<Text color="light">JULIAN SMITH</Text>
 				<Text color="light">09 / 22</Text>

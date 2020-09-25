@@ -27,7 +27,7 @@ const Card = ({ color = "light", barColor = 'light', bColor = "primary", borderC
 		borderWidth: 1,
 		borderColor,
 		justifyContent: "space-between",
-		padding: Sizes.bodyTop,
+		padding: Sizes.bodyVertical,
 		height: Sizes.cardHeight,
 		...style
 	}}>

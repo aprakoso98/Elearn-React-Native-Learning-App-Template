@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-               BuildableName = "MyTsApp-tvOS.app"
-               BlueprintName = "MyTsApp-tvOS"
-               ReferencedContainer = "container:MyTsApp.xcodeproj">
+               BuildableName = "elern-tvOS.app"
+               BlueprintName = "elern-tvOS"
+               ReferencedContainer = "container:elern.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E48F1E0B4A5D006451C7"
-               BuildableName = "MyTsApp-tvOSTests.xctest"
-               BlueprintName = "MyTsApp-tvOSTests"
-               ReferencedContainer = "container:MyTsApp.xcodeproj">
+               BuildableName = "elern-tvOSTests.xctest"
+               BlueprintName = "elern-tvOSTests"
+               ReferencedContainer = "container:elern.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "MyTsApp-tvOS.app"
-            BlueprintName = "MyTsApp-tvOS"
-            ReferencedContainer = "container:MyTsApp.xcodeproj">
+            BuildableName = "elern-tvOS.app"
+            BlueprintName = "elern-tvOS"
+            ReferencedContainer = "container:elern.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "MyTsApp-tvOS.app"
-            BlueprintName = "MyTsApp-tvOS"
-            ReferencedContainer = "container:MyTsApp.xcodeproj">
+            BuildableName = "elern-tvOS.app"
+            BlueprintName = "elern-tvOS"
+            ReferencedContainer = "container:elern.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

@@ -36,7 +36,7 @@ const Payment = ({ navigation }: ScreenProps) => {
 		<Header onPressLeft={() => navigation.goBack()} />
 		<Body scrollable>
 			<Text size="heading1">Payment</Text>
-			<Visa style={{ marginVertical: Sizes.bodyTop }} />
+			<Visa style={{ marginVertical: Sizes.bodyVertical }} />
 			<Input value={form.number} onChangeText={number => setForm({ number })} label="CARD NUMBER" />
 			<Input value={form.holder} onChangeText={holder => setForm({ holder })} label="CARD HOLDER" />
 			<Input value={form.expDate} onChangeText={expDate => setForm({ expDate })} label="EXP DATE" />

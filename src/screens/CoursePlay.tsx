@@ -13,7 +13,7 @@ const CoursePlay = ({ navigation }: ScreenProps) => {
 		<Header backgroundColor="transparent" color="light" absolute onPressLeft={() => navigation.goBack()} />
 		<ImageBackground style={{ width: '100%', height: Constants.MAX_HEIGHT / 3 }} source={Images.emc2}>
 			<View style={{
-				padding: Sizes.bodyTop,
+				padding: Sizes.bodyVertical,
 				backgroundColor: Colors.blackTransparent,
 				flex: 1,
 				justifyContent: 'flex-end',
@@ -24,18 +24,18 @@ const CoursePlay = ({ navigation }: ScreenProps) => {
 		</ImageBackground>
 		<Body noPadding scrollable>
 			<View style={{ paddingHorizontal: Sizes.bodyPadding }}>
-				<View style={{ marginTop: Sizes.bodyTop }}>
+				<View style={{ marginTop: Sizes.bodyVertical }}>
 					<Wrapper justifyContent="center">
 						<Icon color="primary" name="step-backward" iconSize="heading2" />
 						<Icon color="primary" style={{ marginHorizontal: Sizes.base }} name="pause-circle" solid iconSize="logo" />
 						<Icon color="primary" name="step-forward" iconSize="heading2" />
 					</Wrapper>
-					<Text style={{ marginVertical: Sizes.bodyTop }} align="center">12:00 / 22:00</Text>
+					<Text style={{ marginVertical: Sizes.bodyVertical }} align="center">12:00 / 22:00</Text>
 				</View>
 				<Text>1. Ipsum reprehenderit excepteur aliqua.</Text>
 				<Text color="grey">Ipsum reprehenderit excepteur aliqua consequat occaecat tempor ex est aliqua proident ad. Do elit cupidatat aliquip ad anim proident. Eiusmod deserunt mollit sunt cupidatat culpa.</Text>
 			</View>
-			<Text color="grey" style={{ padding: Sizes.bodyTop, marginHorizontal: Sizes.bodyTop, borderRadius: Sizes.secondary, backgroundColor: Colors.greySoft }}>Ipsum reprehenderit excepteur aliqua consequat occaecat tempor ex est aliqua proident ad. Do elit cupidatat aliquip ad anim proident. Eiusmod deserunt mollit sunt cupidatat culpa.</Text>
+			<Text color="grey" style={{ padding: Sizes.bodyVertical, marginHorizontal: Sizes.bodyVertical, borderRadius: Sizes.secondary, backgroundColor: Colors.greySoft }}>Ipsum reprehenderit excepteur aliqua consequat occaecat tempor ex est aliqua proident ad. Do elit cupidatat aliquip ad anim proident. Eiusmod deserunt mollit sunt cupidatat culpa.</Text>
 			<View style={{ paddingHorizontal: Sizes.bodyPadding }}>
 				<Text color="grey">Ipsum reprehenderit excepteur aliqua consequat occaecat tempor ex est aliqua proident ad. Do elit cupidatat aliquip ad anim proident. Eiusmod deserunt mollit sunt cupidatat culpa.</Text>
 			</View>

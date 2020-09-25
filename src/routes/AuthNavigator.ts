@@ -4,8 +4,11 @@ import Course from '@src/screens/Course'
 import CoursePlay from '@src/screens/CoursePlay'
 import Home from '@src/screens/Home'
 import MyCourses from '@src/screens/MyCourses'
+import MyReview from '@src/screens/MyReview'
 import Notification from '@src/screens/Notification'
 import Payment from '@src/screens/Payment'
+import Profile from '@src/screens/Profile'
+import SubmitReview from '@src/screens/SubmitReview'
 import { StackNavProps } from "@src/utils/types"
 import { createAppContainer } from "react-navigation"
 import { createStackNavigator } from "react-navigation-stack"
@@ -30,11 +33,14 @@ const Navs: StackNavProps = {
 	Payment: { screen: Payment },
 	Course: { screen: Course },
 	CoursePlay: { screen: CoursePlay },
+	SubmitReview: { screen: SubmitReview },
+	MyReview: { screen: MyReview },
+	Profile: { screen: Profile },
 }
 
 const Stack = createStackNavigator(Navs, {
 	headerMode: "none",
-	initialRouteName: "Account",
+	initialRouteName: "Profile",
 	transitionConfig: nav => handleCustomTransition(nav),
 })
 

@@ -3,7 +3,7 @@ require_relative '../node_modules/@react-native-community/cli-platform-ios/nativ
 
 platform :ios, '10.0'
 
-target 'MyTsApp' do
+target 'elern' do
   config = use_native_modules!
 
   use_react_native!(:path => config["reactNativePath"])
@@ -12,7 +12,7 @@ target 'MyTsApp' do
 
   pod 'BVLinearGradient', :path => '../node_modules/react-native-linear-gradient'
 
-  target 'MyTsAppTests' do
+  target 'elernTests' do
     inherit! :complete
     # Pods for testing
   end
@@ -27,10 +27,10 @@ target 'MyTsApp' do
   end
 end
 
-target 'MyTsApp-tvOS' do
-  # Pods for MyTsApp-tvOS
+target 'elern-tvOS' do
+  # Pods for elern-tvOS
 
-  target 'MyTsApp-tvOSTests' do
+  target 'elern-tvOSTests' do
     inherit! :search_paths
     # Pods for testing
   end

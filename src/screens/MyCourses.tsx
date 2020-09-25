@@ -14,7 +14,7 @@ const MyCourses = ({ navigation }: ScreenProps) => {
 	const CardIcons = () => <CardIcon onPress={() => navigation.navigate('Course', navigation.state.params)} />
 	const Cards = () => <Card onPress={() => navigation.navigate('Course', navigation.state.params)} />
 
-	const TabData = (isInProcess?) => <View style={{ paddingHorizontal: Sizes.bodyPadding, marginTop: Sizes.bodyTop }}>
+	const TabData = (isInProcess?) => <View style={{ paddingHorizontal: Sizes.bodyPadding, marginTop: Sizes.bodyVertical }}>
 		{
 			isInProcess &&
 			<Cards />

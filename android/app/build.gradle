@@ -129,7 +129,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.mytsapp"
+        applicationId "com.elern.example"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

@@ -7,7 +7,7 @@ import Wrapper, { WrapperProps } from './Wrapper';
 import Icon from './Icon';
 import { colorType } from '@src/utils/constants/type';
 
-interface Props extends Omit<WrapperProps, 'children'> {
+export interface Props extends Omit<WrapperProps, 'children'> {
 	children: string | React.ReactNode
 	style?: ViewStyle
 	containerStyle?: ViewStyle
@@ -39,9 +39,9 @@ const Button = ({
 		bColor = Colors[bColor] ? Colors[bColor] : bColor
 	}
 	return <TouchableOpacity style={{
-		...withMargin && { marginVertical: Sizes.bodyTop, marginHorizontal: Sizes.bodyPadding },
+		...withMargin && { marginVertical: Sizes.bodyVertical, marginHorizontal: Sizes.bodyPadding },
 		...withMarginHorizontal && { marginHorizontal: Sizes.bodyPadding },
-		...withMarginVertical && { marginVertical: Sizes.bodyTop },
+		...withMarginVertical && { marginVertical: Sizes.bodyVertical },
 		...containerStyle
 	}} onPress={onPress}>
 		<Wrapper justifyContent={typeof children === 'string' ? 'center' : undefined} style={{

@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "MyTsApp.app"
-               BlueprintName = "MyTsApp"
-               ReferencedContainer = "container:MyTsApp.xcodeproj">
+               BuildableName = "elern.app"
+               BlueprintName = "elern"
+               ReferencedContainer = "container:elern.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "MyTsAppTests.xctest"
-               BlueprintName = "MyTsAppTests"
-               ReferencedContainer = "container:MyTsApp.xcodeproj">
+               BuildableName = "elernTests.xctest"
+               BlueprintName = "elernTests"
+               ReferencedContainer = "container:elern.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "MyTsApp.app"
-            BlueprintName = "MyTsApp"
-            ReferencedContainer = "container:MyTsApp.xcodeproj">
+            BuildableName = "elern.app"
+            BlueprintName = "elern"
+            ReferencedContainer = "container:elern.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "MyTsApp.app"
-            BlueprintName = "MyTsApp"
-            ReferencedContainer = "container:MyTsApp.xcodeproj">
+            BuildableName = "elern.app"
+            BlueprintName = "elern"
+            ReferencedContainer = "container:elern.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

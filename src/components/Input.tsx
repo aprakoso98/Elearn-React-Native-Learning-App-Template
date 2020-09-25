@@ -9,7 +9,7 @@ import Wrapper from './Wrapper';
 interface Props extends TextInputProps {
 	value?: string
 	label?: string
-	containerStyle?: ViewStyle
+	style?: ViewStyle
 	labelStyle?: TextStyle
 	inputWrapperStyle?: ViewStyle
 	inputStyle?: TextStyle
@@ -34,7 +34,7 @@ const Input = ({
 	renderRightAccessory = () => null,
 	borderBaseColor = "grey",
 	borderTintColor = "primary",
-	containerStyle: containerStyleOverride,
+	style: containerStyleOverride,
 	labelStyle: labelStyleOverride,
 	inputWrapperStyle: inputWrapperStyleOverride,
 	inputStyle: inputStyleOverride,

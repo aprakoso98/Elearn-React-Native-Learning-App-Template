@@ -16,12 +16,12 @@ const Cart = ({ navigation }: ScreenProps) => {
 		<Header onPressLeft={() => navigation.goBack()} />
 		<Body scrollable>
 			<Text size="heading1">Cart</Text>
-			<Wrapper style={{ marginTop: Sizes.bodyTop }}>
+			<Wrapper style={{ marginTop: Sizes.bodyVertical }}>
 				<Text>Mathematic - Algebra grade 6</Text>
 				<Text>$10</Text>
 			</Wrapper>
 			<Text color="grey">by George Smith</Text>
-			<Divider style={{ marginTop: Sizes.bodyTop }} />
+			<Divider style={{ marginTop: Sizes.bodyVertical }} />
 			<Text color="grey" style={{ marginVertical: Sizes.base }}>Do you have promotional code?</Text>
 			<Input label="CODE" borderTintColor="success" value="ELERNDISCOUNT10" renderRightAccessory={() => <Icon color="success" name="check" />} />
 		</Body>

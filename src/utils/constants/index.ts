@@ -17,7 +17,7 @@ const Sizes: { [key in sizeType]: number } = {
 	cardHeight: 125,
 	get textFloat() { return this.text - 2 },
 	get bodyPadding() { return this.base * 4 },
-	get bodyTop() { return this.base * 2 },
+	get bodyVertical() { return this.base * 2 },
 	get iconHeader() { return this.heading5 },
 	get logo() { return this.heading1 * 1.5 },
 	get heading1() { return this.heading2 + 3 },

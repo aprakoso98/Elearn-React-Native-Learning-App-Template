@@ -39,7 +39,7 @@ const Course = ({ navigation }: ScreenProps) => {
 						height: Sizes.heading4,
 						justifyContent: 'center',
 						alignItems: 'center',
-						borderRadius: Sizes.bodyTop,
+						borderRadius: Sizes.bodyVertical,
 						padding: Sizes.secondary
 					}}>
 						<Icon color="light" name="play" />
@@ -68,7 +68,7 @@ const Course = ({ navigation }: ScreenProps) => {
 		<Body scrollable noMargin noPadding>
 			<View style={{
 				backgroundColor: Colors.primary,
-				paddingBottom: Sizes.bodyTop,
+				paddingBottom: Sizes.bodyVertical,
 				paddingHorizontal: Sizes.bodyPadding
 			}}>
 				<Text color="light" size="heading1">Mathematic - Algebra Grade 6</Text>

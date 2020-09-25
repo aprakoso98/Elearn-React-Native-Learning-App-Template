@@ -36,7 +36,7 @@ export const Body = ({ noMargin, noPadding, scrollable, style, ...rest }: BodyPr
 		style: {
 			flex: 1,
 			paddingHorizontal: noPadding ? 0 : Sizes.base * 4,
-			marginBottom: noMargin ? 0 : Sizes.bodyTop,
+			marginBottom: noMargin ? 0 : Sizes.bodyVertical,
 			...style
 		}
 	}
