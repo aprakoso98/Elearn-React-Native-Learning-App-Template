@@ -93,7 +93,7 @@ const Course = ({ navigation }: ScreenProps) => {
 		</Body>
 		{paid && <>
 			{index === 0 && <Button withMargin>CONTINUE THE LESSON</Button>}
-			{index === 2 && <Button withMargin>SUBMIT REVIEW FOR THIS COURSE</Button>}
+			{index === 2 && <Button onPress={() => navigation.navigate('SubmitReview')} withMargin>SUBMIT REVIEW FOR THIS COURSE</Button>}
 		</>}
 	</Container>
 }

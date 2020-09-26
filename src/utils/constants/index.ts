@@ -38,9 +38,9 @@ const Icons = {
 const Images = {
 	debit: require("@src/assets/images/debit.png"),
 	emc2: require("@src/assets/images/emc2.png"),
-	familyLearn: require("@src/assets/images/family-learn.png"),
-	student: require("@src/assets/images/student.png"),
-	teacher: require("@src/assets/images/teacher.png"),
+	familyLearn: require("@src/assets/images/family-learn.jpg"),
+	student: require("@src/assets/images/student.jpg"),
+	teacher: require("@src/assets/images/teacher.jpg"),
 }
 
 const Colors: { [key in colorType]: string } = {

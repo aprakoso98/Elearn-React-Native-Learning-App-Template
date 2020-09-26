@@ -61,7 +61,7 @@ const Account = ({ navigation }: ScreenProps) => {
 				</View>
 			</Wrapper>
 			<ButtonChevron style={{ marginTop: Sizes.base * 3 }} onPress={() => navigation.navigate('MyCourses', { transition: fromRight })} label="My Courses" />
-			<ButtonChevron label="My Reviews" />
+			<ButtonChevron onPress={() => navigation.navigate('MyReview')} label="My Reviews" />
 			<Text size="heading5" style={{ marginTop: Sizes.base * 3, marginBottom: Sizes.secondary }}>Settings</Text>
 			<ButtonChevron noChevron>
 				<Text>Push Notification</Text>
