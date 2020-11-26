@@ -1,7 +1,7 @@
 import React from 'react'
 import { Colors, Sizes } from '@src/utils/constants'
 import { colorMap, colorType, sizeMap, sizeType } from '@src/utils/constants/type'
-import { ScrollView, Animated, View, ViewProps, ScrollViewProps, ViewStyle, StatusBar, SafeAreaView } from 'react-native'
+import { ScrollView, Animated, View, ViewProps, ScrollViewProps, ViewStyle, StatusBar, SafeAreaView, Platform } from 'react-native'
 
 interface Props extends ViewProps {
 	style?: ViewStyle
@@ -12,15 +12,14 @@ interface Props extends ViewProps {
 
 const Container = ({ barColor = "light", barStyle = "dark-content", children, style, ...rest }: Props) => {
 	barColor = colorMap(barColor)
-	return <SafeAreaView>
-		<View style={{
-			backgroundColor: Colors.light,
-			flex: 1,
-			...style
-		}} {...rest}>
-			<StatusBar barStyle={barStyle} backgroundColor={barColor} />
-			{children}
-		</View>
+	const isAndroid = Platform.OS === 'android'
+	return <SafeAreaView style={{
+		backgroundColor: Colors.light,
+		flex: 1,
+		...style
+	}} {...rest}>
+		{isAndroid && <StatusBar barStyle={barStyle} backgroundColor={barColor} />}
+		{children}
 	</SafeAreaView>
 }
 
@@ -39,6 +38,7 @@ export const Body = ({ noMargin, noPadding, scrollable, style, ...rest }: BodyPr
 			flex: 1,
 			paddingHorizontal: noPadding ? 0 : Sizes.base * 4,
 			marginBottom: noMargin ? 0 : Sizes.bodyVertical,
+			backgroundColor: Colors.light,
 			...style
 		}
 	}

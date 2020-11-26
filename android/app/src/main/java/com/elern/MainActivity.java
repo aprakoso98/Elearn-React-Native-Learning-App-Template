@@ -1,4 +1,4 @@
-package com.elern.example;
+package com.elern;
 
 import com.facebook.react.ReactActivity;
 

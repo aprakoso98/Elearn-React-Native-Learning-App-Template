@@ -129,7 +129,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.elern.example"
+        applicationId "com.elern"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
