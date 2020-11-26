@@ -72,6 +72,7 @@ const Input = ({
 			<TextInput
 				{...noLabel && { placeholder: label }}
 				{...props}
+				underlineColorAndroid="transparent"
 				value={value}
 				style={{
 					padding: 0,

@@ -26,6 +26,7 @@
 		E239403D25637F1A005A0CBB /* DMSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 22F5076F6FFB44C68C8E17FC /* DMSans-Medium.ttf */; };
 		E239403E25637F1A005A0CBB /* DMSans-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3F33078580949E297529493 /* DMSans-MediumItalic.ttf */; };
 		E239403F25637F1A005A0CBB /* DMSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 67EFC967F450405489BC79F2 /* DMSans-Regular.ttf */; };
+		E2B71F64256F86C300296C72 /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 008F07F21AC5B25A0029DE68 /* main.jsbundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -351,7 +352,7 @@
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
-						DevelopmentTeam = KM5XV88Y2X;
+						DevelopmentTeam = 9P5DCR3R8N;
 						LastSwiftMigration = 1120;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
@@ -398,6 +399,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2B71F64256F86C300296C72 /* main.jsbundle in Resources */,
 				E239403A25637F1A005A0CBB /* DMSans-Bold.ttf in Resources */,
 				E239403B25637F1A005A0CBB /* DMSans-BoldItalic.ttf in Resources */,
 				E239403C25637F1A005A0CBB /* DMSans-Italic.ttf in Resources */,
@@ -784,7 +786,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = KM5XV88Y2X;
+				DEVELOPMENT_TEAM = 9P5DCR3R8N;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = elern/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -793,7 +795,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.elern.example;
 				PRODUCT_NAME = elern;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -808,7 +810,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = KM5XV88Y2X;
+				DEVELOPMENT_TEAM = 9P5DCR3R8N;
+				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = elern/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -816,7 +819,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.elern.example;
 				PRODUCT_NAME = elern;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
